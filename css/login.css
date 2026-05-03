@@ -1,0 +1,384 @@
+/* ============================================
+   CAREPLUS CONNECT — login.css
+   Estilos da tela de login
+   ============================================ */
+
+/* ── RESET BÁSICO ──
+   Remove margin e padding padrão do navegador
+   box-sizing garante que padding não aumenta o tamanho do elemento ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--bs-font-sans-serif);
+  height: 100vh;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* ── ESTRUTURA PRINCIPAL ──
+   Divide a tela em duas colunas lado a lado ── */
+.pagina-login {
+  display: flex;
+  height: 100vh;
+}
+
+/* ── PAINEL ESQUERDO (formulário) ──
+   Ocupa 52% da tela, centraliza o conteúdo ── */
+.painel-esquerdo {
+  width: 52%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 5rem;
+  background: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── CAIXA DO FORMULÁRIO ──
+   Limita largura máxima e anima a entrada ── */
+.caixa-formulario {
+  width: 100%;
+  max-width: 400px;
+  animation: subir .6s ease both;
+}
+
+/* ── LOGO ── */
+.logo {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.9rem;
+  letter-spacing: -.5px;
+  margin-bottom: .25rem;
+  text-align: center;
+}
+.logo span.care    { color: var(--verde-escuro); }
+.logo span.plus    { color: var(--verde-acento); }
+.logo span.connect { color: var(--verde-medio); font-style: italic; }
+
+.logo-subtitulo {
+  text-align: center;
+  color: var(--texto-suave);
+  font-size: .875rem;
+  margin-bottom: 2.5rem;
+}
+
+/* ── TÍTULOS DO FORMULÁRIO ── */
+.titulo-formulario {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--verde-escuro);
+  margin-bottom: .25rem;
+}
+.descricao-formulario {
+  font-size: .85rem;
+  color: var(--texto-suave);
+  margin-bottom: 1.75rem;
+}
+
+/* ── LABELS DOS CAMPOS ── */
+label {
+  font-size: .82rem;
+  font-weight: 500;
+  color: var(--texto-principal);
+  margin-bottom: .4rem;
+  display: block;
+}
+
+/* ── CAMPOS DE INPUT ── */
+.campo-input {
+  position: relative;
+  margin-bottom: 1.1rem;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  width: 100%;
+  padding: .75rem 1rem;
+  border: 1.5px solid var(--borda);
+  border-radius: 10px;
+  background: var(--fundo-input);
+  font-family: var(--bs-font-sans-serif);
+  font-size: .9rem;
+  color: var(--texto-principal);
+  transition: border-color .2s, box-shadow .2s;
+  outline: none;
+}
+input:focus {
+  border-color: var(--verde-medio);
+  box-shadow: 0 0 0 3px rgba(30,158,158,.12);
+}
+input::placeholder { color: #b0c8c8; }
+
+/* ── BOTÃO MOSTRAR/OCULTAR SENHA ── */
+.botao-olho {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--texto-suave);
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+/* Ícone do olho — Bootstrap Icons */
+.botao-olho i { font-size: 1rem; color: var(--texto-suave); }
+
+/* ── LINHA SENHA + ESQUECEU A SENHA ── */
+.linha-senha {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.1rem;
+}
+.linha-senha label { margin: 0; }
+
+.link-esqueceu-senha {
+  font-size: .82rem;
+  color: var(--verde-medio);
+  text-decoration: none;
+  font-weight: 500;
+}
+.link-esqueceu-senha:hover { text-decoration: underline; }
+
+/* ── CHECKBOX LEMBRAR DE MIM ── */
+.lembrar-de-mim {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .82rem;
+  color: var(--texto-suave);
+  margin-bottom: 1rem;
+}
+.lembrar-de-mim input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  accent-color: var(--verde-medio);
+  margin: 0;
+  border-radius: 4px;
+}
+
+/* ── BOTÃO ENTRAR ── */
+.botao-entrar {
+  width: 100%;
+  padding: .85rem;
+  background: var(--verde-escuro);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-family: var(--bs-font-sans-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: .5rem;
+  transition: background .2s, transform .1s, box-shadow .2s;
+  letter-spacing: .3px;
+}
+.botao-entrar:hover {
+  background: var(--verde-medio);
+  box-shadow: 0 6px 20px rgba(30,158,158,.25);
+}
+.botao-entrar:active { transform: scale(.98); }
+
+/* ── DIVISOR "OU CONTINUE COM" ── */
+.divisor {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin: 1.25rem 0;
+  color: var(--texto-suave);
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+.divisor::before,
+.divisor::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--borda);
+}
+
+/* ── BOTÃO ENTRAR COM GOOGLE ── */
+.botao-google {
+  width: 100%;
+  padding: .75rem;
+  border: 1.5px solid var(--borda);
+  border-radius: 10px;
+  background: #fff;
+  font-family: var(--bs-font-sans-serif);
+  font-size: .9rem;
+  font-weight: 500;
+  color: var(--texto-principal);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  transition: border-color .2s, box-shadow .2s;
+}
+.botao-google:hover {
+  border-color: var(--verde-claro);
+  box-shadow: 0 4px 12px rgba(0,0,0,.06);
+}
+
+/* ── LINK DE CADASTRO(Cadaste-se) ── */
+.link-cadastro {
+  text-align: center;
+  margin-top: 1.25rem;
+  font-size: .84rem;
+  color: var(--texto-suave);
+}
+.link-cadastro a {
+  color: var(--verde-medio);
+  font-weight: 600;
+  text-decoration: none;
+}
+.link-cadastro a:hover { text-decoration: underline; }
+
+/* ── PAINEL DIREITO (imagem + bullets/marcadores) ── */
+.painel-direito {
+  width: 48%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 3.5rem;
+}
+
+/* Fundo com gradiente + imagem ── */
+.painel-direito::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 70% 20%, rgba(30,158,158,.55) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 80%, rgba(26,122,122,.6) 0%, transparent 50%),
+    url('../assets/imagens/bg-login.png') center/cover no-repeat;
+  z-index: 0;
+}
+
+/* ── CÍRCULOS DECORATIVOS ── */
+.circulo {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,.18);
+  z-index: 1;
+}
+.circulo-1 { width: 220px; height: 220px; top: -40px; right: -50px; }
+.circulo-2 { width: 130px; height: 130px; bottom: 60px; left: 30px; }
+.circulo-3 { width: 60px;  height: 60px;  top: 40%;  right: 15%; opacity: .5; }
+
+.painel-direito::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: .6;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ── CONTEÚDO DO PAINEL DIREITO ── */
+.conteudo-direito {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  animation: subir .8s .2s ease both;
+}
+
+.titulo-direito {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: .6rem;
+  line-height: 1.3;
+}
+
+.descricao-direito {
+  font-size: .9rem;
+  opacity: .85;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  max-width: 340px;
+}
+
+/* ── LISTA DE FUNCIONALIDADES ── */
+.lista-funcionalidades {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.item-funcionalidade {
+  display: flex;
+  align-items: flex-start;
+  gap: .9rem;
+}
+
+.icone-check {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.2);
+  border: 1.5px solid rgba(255,255,255,.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+  backdrop-filter: blur(4px);
+}
+/* Ícone de check — Bootstrap Icons */
+.icone-check i { font-size: .85rem; color: #fff; }
+
+.texto-funcionalidade strong {
+  display: block;
+  font-size: .95rem;
+  font-weight: 600;
+  margin-bottom: .15rem;
+}
+.texto-funcionalidade span {
+  font-size: .8rem;
+  opacity: .75;
+}
+
+/* ── ANIMAÇÃO DE ENTRADA ── */
+@keyframes subir {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── RESPONSIVO PRA MOBILE ── */
+@media (max-width: 768px) {
+  body { overflow: auto; }
+
+  .pagina-login { flex-direction: column; height: auto; min-height: 100vh; }
+
+  .painel-direito {
+    width: 100%;
+    min-height: 180px;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+    order: -1;
+  }
+
+  .conteudo-direito      { text-align: center; }
+  .titulo-direito        { font-size: 1.2rem; }
+  .descricao-direito     { display: none; }
+  .lista-funcionalidades { display: none; }
+
+  .circulo-1 { width: 120px; height: 120px; top: -20px; right: -20px; }
+  .circulo-2 { display: none; }
+
+  .painel-esquerdo { width: 100%; padding: 2rem 1.5rem; }
+}

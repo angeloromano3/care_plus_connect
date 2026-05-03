@@ -1,0 +1,31 @@
+/* ============================================
+   CAREPLUS CONNECT — variaveis.css
+   Variáveis globais de cor e estilo
+   usadas em todas as telas do projeto
+   ============================================ */
+
+:root {
+  /* ── Cores principais da marca ── */
+  --verde-escuro:      #1a7a7a;  /* navbar, títulos, botões principais */
+  --verde-medio:       #1e9e9e;  /* links, hover, destaques */
+  --verde-claro:       #4dc4c4;  /* bordas no hover, detalhes suaves */
+  --verde-acento:      #5bbf8e;  /* card remarcar, logo "Plus" */
+
+  /* ── Cores de status ── */
+  --vermelho-acento:   #f28b82;  /* card cancelar, notificação, erro */
+  --amarelo-acento:    #f6c343;  /* consulta pendente, aviso */
+
+  /* ── Cores de texto ── */
+  --texto-principal:   #1a2b2b;  /* textos principais */
+  --texto-suave:       #6b8080;  /* textos secundários, placeholders */
+
+  /* ── Cores de fundo e estrutura ── */
+  --fundo-pagina:      #f4f9f9;  /* fundo geral da dashboard */
+  --fundo-card:        #ffffff;  /* fundo dos cards */
+  --fundo-input:       #f5fafa;  /* fundo dos campos de input */
+
+  /* ── Bordas e sombras ── */
+  --borda:             #ddeaea;  /* bordas dos cards e inputs */
+  --sombra:            0 2px 12px rgba(26,122,122,.08); /* sombra dos cards */
+  --borda-arredondada: 14px;     /* border-radius padrão dos cards */
+}
