@@ -256,7 +256,7 @@
         <!-- ── CARD DE CLIMA ──
              Conectado via dispositivo externo do usuário
              Mostra temperatura, condição e detalhes meteorológicos -->
-        <div class="card-clima" onclick="window.location.href='#'" role="button">
+        <div class="card-clima clima-bloqueado" role="button">
           <div class="topo-clima">
             <span class="cidade-clima">São Paulo</span>
             <span class="emoji-clima">☀️</span>
@@ -277,6 +277,12 @@
               <span>26°</span>
             </div>
           </div>
+                   <!-- ── BOTÃO CONECTAR DISPOSITIVO ──
+     Aparece abaixo do card de clima
+     Futuramente conecta com API de clima do usuário -->
+<button class="botao-conectar-clima" id="btn-conectar-clima">
+  <i class="bi bi-plug"></i> Conectar dispositivo
+</button>
         </div>
         <!-- fim card-clima -->
 
