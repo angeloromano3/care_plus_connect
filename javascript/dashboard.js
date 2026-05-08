@@ -40,3 +40,30 @@ document.querySelectorAll('.ponto-navegacao').forEach(function (ponto, indice) {
     rotacaoAutomatica = setInterval(proximoSlide, 4000); // Reinicia o timer
   });
 });
+// ── MODAL DE RECOMPENSAS ──
+// Abre o modal ao clicar em "Ver Recompensas"
+// Fecha ao clicar no X ou fora do modal
+
+const modalRecompensas = document.getElementById('modal-recompensas');
+const btnAbrirModal    = document.querySelector('.botao-recompensas');
+const btnFecharModal   = document.getElementById('btn-fechar-modal');
+
+// Abre o modal
+btnAbrirModal.addEventListener('click', function () {
+  modalRecompensas.classList.add('ativo');
+  document.body.style.overflow = 'hidden';
+});
+
+// Fecha ao clicar no X
+btnFecharModal.addEventListener('click', function () {
+  modalRecompensas.classList.remove('ativo');
+  document.body.style.overflow = '';
+});
+
+// Fecha ao clicar fora do modal (no overlay escurecido)
+modalRecompensas.addEventListener('click', function (e) {
+  if (e.target === modalRecompensas) {
+    modalRecompensas.classList.remove('ativo');
+    document.body.style.overflow = '';
+  }
+});

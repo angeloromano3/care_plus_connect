@@ -43,6 +43,7 @@
       </ul>
 
       <!-- Sino de notificação + avatar do usuário -->
+       <div class="acoes-navbar">
       <button class="botao-notificacao" aria-label="Notificações">
   <i class="bi bi-bell"></i>
   <!-- Bolinha vermelha indica notificações não lidas -->
@@ -53,6 +54,7 @@
       <button class="botao-avatar" aria-label="Perfil do usuário">
           <i class="bi bi-person"></i>
             </button>
+            </div>
   </nav>
   <!-- fim barra de navegação -->
 
@@ -169,7 +171,7 @@
             </div>
           </div>
 
-          <button class="botao-recompensas" onclick="window.location.href='#'">Ver Recompensas</button>
+          <button class="botao-recompensas" id="btn-abrir-modal">Ver Recompensas</button>
 
         </div>
         <!-- fim card-carepoints -->
@@ -346,6 +348,168 @@
 
     </div>
     <!-- fim grade-dashboard -->
+              <!-- ================================================
+     MODAL DE RECOMPENSAS
+     Abre por cima da dashboard ao clicar em "Ver Recompensas"
+================================================= -->
+<div class="modal-overlay" id="modal-recompensas">
+  <div class="modal-caixa">
+
+    <!-- Cabeçalho do modal -->
+    <div class="modal-cabecalho">
+      <div>
+        <p class="modal-titulo">CarePoints — Recompensas</p>
+        <p class="modal-subtitulo">Acompanhe seus pontos e resgate benefícios exclusivos</p>
+      </div>
+      <button class="modal-fechar" id="btn-fechar-modal" aria-label="Fechar modal">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+
+    <!-- Corpo do modal -->
+    <div class="modal-corpo">
+
+      <!-- Pontuação + tier -->
+      <div class="modal-pts-row">
+        <div>
+          <p class="modal-pts-label">Sua pontuação</p>
+          <div class="modal-pts-numero">
+            <span class="modal-numero">35</span>
+            <span class="modal-unidade">pts</span>
+          </div>
+        </div>
+        <div class="badge-tier bronze">
+          <div class="icone-tier">🥉</div>
+          <span class="nome-tier">Bronze</span>
+        </div>
+      </div>
+
+      <!-- Linha de tiers -->
+      <div class="linha-tiers">
+        <div class="etapa-tier">
+          <div class="bolinha-tier conquistado">🥉</div>
+          <span class="label-tier">Bronze</span>
+        </div>
+        <div class="barra-conexao completa"></div>
+        <div class="etapa-tier">
+          <div class="bolinha-tier atual">🥈</div>
+          <span class="label-tier atual">Prata</span>
+        </div>
+        <div class="barra-conexao parcial"></div>
+        <div class="etapa-tier">
+          <div class="bolinha-tier proximo">🥇</div>
+          <span class="label-tier">Ouro</span>
+        </div>
+  
+      </div>
+
+      <!-- Barra de progresso -->
+      <div class="area-progresso">
+        <div class="info-progresso">
+          <span>35 / 100 pts para Prata</span>
+          <span>65 pts restantes</span>
+        </div>
+        <div class="trilha-progresso">
+          <div class="preenchimento-progresso"></div>
+        </div>
+      </div>
+
+      <!-- Recompensas disponíveis -->
+      <p class="modal-secao-titulo">Recompensas disponíveis</p>
+      <div class="modal-recompensas-grid">
+
+        <div class="modal-recomp-card">
+          <div class="modal-recomp-icone">⚡</div>
+          <p class="modal-recomp-titulo">Prioridade no agendamento</p>
+          <p class="modal-recomp-pts">30 pts necessários</p>
+          <button class="modal-recomp-btn ativo">Resgatar</button>
+        </div>
+
+        <div class="modal-recomp-card">
+          <div class="modal-recomp-icone">🎫</div>
+          <p class="modal-recomp-titulo">Consulta com desconto</p>
+          <p class="modal-recomp-pts">50 pts necessários</p>
+          <button class="modal-recomp-btn bloqueado">Faltam 15 pts</button>
+        </div>
+
+        <div class="modal-recomp-card">
+          <div class="modal-recomp-icone">📋</div>
+          <p class="modal-recomp-titulo">Exame gratuito</p>
+          <p class="modal-recomp-pts">80 pts necessários</p>
+          <button class="modal-recomp-btn bloqueado">Faltam 45 pts</button>
+        </div>
+
+        <div class="modal-recomp-card">
+          <div class="modal-recomp-icone">🎁</div>
+          <p class="modal-recomp-titulo">Kit saúde Care Plus</p>
+          <p class="modal-recomp-pts">100 pts necessários</p>
+          <button class="modal-recomp-btn bloqueado">Faltam 65 pts</button>
+        </div>
+
+      </div>
+
+      <!-- Como ganhar pontos -->
+      <p class="modal-secao-titulo">Como ganhar pontos</p>
+
+      <div class="modal-ganhar-item">
+        <div class="modal-ganhar-icone" style="background:rgba(30,158,158,.1);">
+          <i class="bi bi-calendar-check" style="color:#1e9e9e;"></i>
+        </div>
+        <div class="modal-ganhar-texto">
+          <strong>Comparecer à consulta</strong>
+          <span>Confirmado automaticamente após a consulta realizada</span>
+        </div>
+        <span class="modal-ganhar-pts">+10 pts</span>
+      </div>
+
+      <div class="modal-ganhar-item">
+        <div class="modal-ganhar-icone" style="background:rgba(91,191,142,.1);">
+          <i class="bi bi-arrow-clockwise" style="color:#5bbf8e;"></i>
+        </div>
+        <div class="modal-ganhar-texto">
+          <strong>Remarcar com antecedência</strong>
+          <span>Válido para remarcações feitas com mais de 24h de antecedência</span>
+        </div>
+        <span class="modal-ganhar-pts">+5 pts</span>
+      </div>
+
+      <div class="modal-ganhar-item">
+        <div class="modal-ganhar-icone" style="background:rgba(246,195,67,.15);">
+          <i class="bi bi-x-circle" style="color:#f6c343;"></i>
+        </div>
+        <div class="modal-ganhar-texto">
+          <strong>Cancelar com antecedência</strong>
+          <span>Válido para cancelamentos com mais de 48h de antecedência</span>
+        </div>
+        <span class="modal-ganhar-pts">+3 pts</span>
+      </div>
+
+      <div class="modal-ganhar-item">
+        <div class="modal-ganhar-icone" style="background:rgba(30,158,158,.1);">
+          <i class="bi bi-star" style="color:#1e9e9e;"></i>
+        </div>
+        <div class="modal-ganhar-texto">
+          <strong>Consulta preventiva</strong>
+          <span>Check-ups e consultas de prevenção valem mais pontos!</span>
+        </div>
+        <span class="modal-ganhar-pts">+15 pts</span>
+      </div>
+
+      <!-- Saiba Mais -->
+      <div class="modal-saiba-mais">
+        <i class="bi bi-info-circle"></i>
+        <div>
+          <strong>Quer saber mais sobre o programa?</strong>
+          <span>Pontos expiram após 12 meses sem atividade. Não comparecer sem aviso não gera pontos. Pontos são acumulativos entre consultas.</span>
+        </div>
+      </div>
+
+    </div>
+    <!-- fim modal-corpo -->
+
+  </div>
+</div>
+<!-- fim modal-recompensas -->
 
   </main>
   <!-- fim conteudo-principal -->
