@@ -191,7 +191,7 @@ body {
   overflow: hidden;
 }
 
-/* Barra colorida no topo de cada card */
+/* Faixa decorativa colorida no topo de cada card — criada com ::before sem ocupar espaço no HTML */
 .card-acao::before {
   content: '';
   position: absolute;
@@ -308,9 +308,18 @@ body {
   display: flex; align-items: center; justify-content: center;
   font-size: 1.4rem;
 }
-.badge-tier.bronze .icone-tier { background: linear-gradient(135deg, #cd7f32, #a0522d); box-shadow: 0 4px 12px rgba(205,127,50,.3); }
-.badge-tier.prata  .icone-tier { background: linear-gradient(135deg, #c0c0c0, #909090); box-shadow: 0 4px 12px rgba(192,192,192,.3); }
-.badge-tier.ouro   .icone-tier { background: linear-gradient(135deg, #ffd700, #ffa500); box-shadow: 0 4px 12px rgba(255,215,0,.3); }
+.badge-tier.bronze .icone-tier {
+  background: linear-gradient(135deg, var(--bronze-claro), var(--bronze-escuro));
+  box-shadow: 0 4px 12px rgba(205,127,50,.3);
+}
+.badge-tier.prata .icone-tier {
+  background: linear-gradient(135deg, var(--prata-claro), var(--prata-escuro));
+  box-shadow: 0 4px 12px rgba(192,192,192,.3);
+}
+.badge-tier.ouro .icone-tier {
+  background: linear-gradient(135deg, var(--ouro-claro), var(--ouro-escuro));
+  box-shadow: 0 4px 12px rgba(255,215,0,.3);
+}
 
 .nome-tier {
   font-size: .72rem;
@@ -318,9 +327,9 @@ body {
   text-transform: uppercase;
   letter-spacing: .5px;
 }
-.badge-tier.bronze .nome-tier { color: #a0522d; }
-.badge-tier.prata  .nome-tier { color: #707070; }
-.badge-tier.ouro   .nome-tier { color: #cc8800; }
+.badge-tier.bronze .nome-tier { color: var(--bronze-texto); }
+.badge-tier.prata  .nome-tier { color: var(--prata-texto); }
+.badge-tier.ouro   .nome-tier { color: var(--ouro-texto); }
 
 /* Linha de progressão entre tiers */
 .linha-tiers {
@@ -344,8 +353,15 @@ body {
   font-size: .85rem;
   border: 2px solid transparent;
 }
-.bolinha-tier.conquistado { background: linear-gradient(135deg, #cd7f32, #a0522d); }
-.bolinha-tier.atual       { background: linear-gradient(135deg, #ffd700, #ffa500); border-color: var(--verde-escuro); box-shadow: 0 0 0 3px rgba(26,122,122,.15); }
+.bolinha-tier.conquistado { 
+  background: linear-gradient(135deg, var(--bronze-claro), var(--bronze-escuro)); 
+}
+
+.bolinha-tier.atual {
+   background: linear-gradient(135deg, var(--ouro-claro), var(--ouro-escuro));
+   border-color: var(--verde-escuro);
+   box-shadow: 0 0 0 3px rgba(26,122,122,.15);
+}
 .bolinha-tier.proximo     { background: #f0f0f0; border-color: var(--borda); }
 
 .label-tier {
@@ -357,7 +373,7 @@ body {
 }
 .label-tier.atual { color: var(--verde-escuro); }
 
-/* Barra de conexão entre tiers */
+/* Barra de conexão entre tiers/níveis */
 .barra-conexao {
   flex: 1;
   height: 3px;
@@ -371,7 +387,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, #cd7f32, #ffd700);
+  background: linear-gradient(90deg, var(--bronze-claro), var(--ouro-claro));
 }
 /* Trecho em progresso */
 .barra-conexao.parcial::after {
@@ -379,7 +395,7 @@ body {
   position: absolute;
   top: 0; left: 0; bottom: 0;
   width: 35%;
-  background: linear-gradient(90deg, #ffd700, var(--verde-claro));
+  background: linear-gradient(90deg, var(--ouro-claro), var(--verde-claro));
 }
 
 /* Barra de progresso até o próximo tier */
@@ -406,7 +422,7 @@ body {
   border-radius: 999px;
 }
 
-/* Botão ver recompensas */
+/* Botão verde que abre o modal de recompensas ao clicar */
 .botao-recompensas {
   margin-top: 1rem;
   width: 100%;
@@ -582,7 +598,14 @@ body {
 }
 
 /* Cada slide — escondido por padrão, só o .ativo aparece */
-.slide-rotativo { display: none; padding: 1.3rem 1.4rem; animation: aparecer .4s ease; height: 100%; }
+.slide-rotativo {
+  display: none;
+  padding: 1.3rem 1.4rem;
+  animation: aparecer .4s ease;
+  height: 100%;
+  border-radius: var(--borda-arredondada) var(--borda-arredondada) 0 0;
+  overflow: hidden;
+}
 .slide-rotativo.ativo { display: flex; flex-direction: column; gap: .5rem; }
 
 /* Ícone de cada slide */
@@ -653,6 +676,8 @@ body {
   position: relative;
   overflow: hidden;
 }
+/* Círculo decorativo semitransparente no canto inferior direito do card bem sutil
+ dá profundidade no fundo verde */
 .card-beni::before {
   content: '';
   position: absolute;
@@ -669,7 +694,7 @@ body {
   margin-bottom: .5rem;
 }
 .imagem-beni {
-  width: 80px;
+  width: 90px;
   filter: drop-shadow(0 4px 12px rgba(0,0,0,.2));
 }
 .balao-beni {
@@ -826,7 +851,7 @@ body {
   font-weight: 600;
   cursor: pointer;
 }
-.modal-recomp-btn.ativo    { background: var(--verde-escuro); color: #fff; }
+.modal-recomp-btn.ativo { background: var(--verde-escuro); color: #fff; }
 .modal-recomp-btn.bloqueado { background: var(--borda); color: var(--texto-suave); cursor: not-allowed; }
 
 /* Itens de como ganhar pontos */
@@ -851,6 +876,9 @@ body {
 .modal-ganhar-texto strong { display: block; font-size: .85rem; font-weight: 600; color: var(--texto-principal); }
 .modal-ganhar-texto span   { font-size: .72rem; color: var(--texto-suave); }
 
+/* Pontuação ganha por cada ação — ex: +10 pts — alinhada à direita */
+.modal-ganhar-pts { font-size: .85rem; font-weight: 700; color: var(--verde-escuro); white-space: nowrap; }
+
 /* ── ÍCONES DO MODAL GANHAR PONTOS ── */
 .icone-comparecer { background: rgba(30,158,158,.1); }
 .icone-comparecer i { color: var(--verde-medio); }
@@ -864,7 +892,7 @@ body {
 .icone-preventiva { background: rgba(30,158,158,.1); }
 .icone-preventiva i { color: var(--verde-medio); }
 
-/* Card (saiba mais) no final do modal da dashbord */
+/* Card clicável que leva para a página explicativa dos CarePoints */
 .modal-saiba-mais {
   display: flex;
   gap: .9rem;
@@ -874,7 +902,12 @@ body {
   border-radius: 10px;
   padding: 1rem;
   margin-top: 1.25rem;
+  cursor: pointer;
+  transition: background .2s;
+  width: 100%;
+  text-align: left;
 }
+.modal-saiba-mais:hover { background: rgba(30,158,158,.12); }
 .modal-saiba-mais i      { font-size: 1.1rem; color: var(--verde-medio); flex-shrink: 0; margin-top: 2px; }
 .modal-saiba-mais strong { display: block; font-size: .85rem; font-weight: 600; color: var(--verde-escuro); margin-bottom: .25rem; }
 .modal-saiba-mais span   { font-size: .75rem; color: var(--texto-suave); line-height: 1.5; }
@@ -890,7 +923,6 @@ body {
   border-bottom: 1px solid var(--borda);
 }
 .app-item-mini:last-of-type { border-bottom: none; }
-
 .app-item-mini i { font-size: .9rem; width: 16px; }
 .app-maps i       { color: #ea4335; } /* Google Maps — vermelho */
 .app-waze i       { color: #05c8f7; } /* Waze — azul claro */
@@ -932,6 +964,8 @@ body {
 
   /* Sidebar vira grid de 2 colunas em tablet */
   .coluna-direita { display: grid; grid-template-columns: 1fr 1fr; }
+  .area-cards-rotativos { overflow: visible; }
+  .slide-rotativo { overflow: hidden; }
 }
 
 @media (max-width: 640px) {
@@ -941,4 +975,6 @@ body {
   .links-navegacao    { display: none; }
   .conteudo-principal { padding: 1.25rem 1rem 2rem; }
   .titulo-pagina      { font-size: 1.3rem; }
+  .area-cards-rotativos { overflow: visible; }
+  .slide-rotativo { overflow: hidden; }
 }
