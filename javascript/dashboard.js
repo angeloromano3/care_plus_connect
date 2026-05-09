@@ -7,7 +7,7 @@
 // Controla qual slide está visível e a rotação automática
 
 let slideAtual = 0;          // Índice do slide visível no momento
-const totalSlides = 4;       // Total de slides existentes
+const totalSlides = 5;       // Total de slides existentes
 
 // Vai para um slide específico pelo índice
 function irParaSlide(indice) {

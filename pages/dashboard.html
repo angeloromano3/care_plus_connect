@@ -315,13 +315,38 @@
             <button class="botao-slide" onclick="window.location.href='#'">Agendar agora</button>
           </div>
 
-          <!-- Slide 4: CarePoints -->
+          <!-- Slide 4: CarePoints (Quase lá!) -->
           <div class="slide-rotativo slide-pontos" id="slide-3">
             <div class="icone-slide">⭐</div>
             <p class="titulo-slide">Quase lá!</p>
             <p class="descricao-slide">Você está a 65 pontos de atingir o nível Prata. Continue comparecendo às consultas!</p>
             <button class="botao-slide" onclick="window.location.href='#'">Ver recompensas</button>
           </div>
+          <!-- Slide 5: Apps integrados -->
+          <div class="slide-rotativo slide-apps" id="slide-4">
+            <div class="icone-slide">🔗</div>
+            <p class="titulo-slide">Apps integrados</p>
+            <div class="app-item-mini">
+            <i class="bi bi-map"></i>
+            <span>Google Maps</span>
+            <button class="botao-app-mini" id="btn-maps">Conectar</button>
+          </div>
+          <div class="app-item-mini">
+          <i class="bi bi-car-front"></i>
+          <span>Waze</span>
+          <button class="botao-app-mini" id="btn-waze">Conectar</button>
+          </div>
+          <div class="app-item-mini">
+          <i class="bi bi-calendar-check"></i>
+          <span>Google Calendar</span>
+          <button class="botao-app-mini" id="btn-calendar">Conectar</button>
+        </div>
+          <div class="app-item-mini">
+          <i class="bi bi-cloud-sun"></i>
+          <span>Climatempo</span>
+          <button class="botao-app-mini" id="btn-climatempo">Conectar</button>
+          </div>
+        </div>
 
           <!-- Pontos de navegação manual -->
           <div class="pontos-navegacao">
@@ -329,8 +354,8 @@
             <button class="ponto-navegacao" aria-label="Slide 2"></button>
             <button class="ponto-navegacao" aria-label="Slide 3"></button>
             <button class="ponto-navegacao" aria-label="Slide 4"></button>
+            <button class="ponto-navegacao" aria-label="Slide 5"></button>
           </div>
-
         </div>
         <!-- fim area-cards-rotativos -->
 
@@ -354,10 +379,13 @@
 
     </div>
     <!-- fim grade-dashboard -->
+
+
               <!-- ================================================
      MODAL DE RECOMPENSAS
      Abre por cima da dashboard ao clicar em "Ver Recompensas"
 ================================================= -->
+
 <div class="modal-overlay" id="modal-recompensas">
   <div class="modal-caixa">
 

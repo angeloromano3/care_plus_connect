@@ -860,6 +860,34 @@ body {
 .modal-saiba-mais i      { font-size: 1.1rem; color: var(--verde-medio); flex-shrink: 0; margin-top: 2px; }
 .modal-saiba-mais strong { display: block; font-size: .85rem; font-weight: 600; color: var(--verde-escuro); margin-bottom: .25rem; }
 .modal-saiba-mais span   { font-size: .75rem; color: var(--texto-suave); line-height: 1.5; }
+
+/* ── SLIDE APPS INTEGRADOS (No Card Rotativo) ── */
+.slide-apps .icone-slide { background: rgba(30,158,158,.1); }
+
+.app-item-mini {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .35rem 0;
+  border-bottom: 1px solid var(--borda);
+}
+.app-item-mini:last-of-type { border-bottom: none; }
+.app-item-mini i    { font-size: .9rem; color: var(--verde-medio); width: 16px; }
+.app-item-mini span { font-size: .75rem; color: var(--texto-principal); flex: 1; }
+
+.botao-app-mini {
+  padding: .2rem .55rem;
+  border: 1.5px solid var(--verde-medio);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--verde-medio);
+  font-size: .7rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.botao-app-mini:hover { background: var(--verde-medio); color: #fff; }
+
 /* ════════════════════════════════
    ANIMAÇÕES
 ════════════════════════════════ */
