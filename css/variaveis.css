@@ -28,4 +28,15 @@
   --borda:             #ddeaea;  /* bordas dos cards e inputs */
   --sombra:            0 2px 12px rgba(26,122,122,.08); /* sombra dos cards */
   --borda-arredondada: 14px;     /* border-radius padrão dos cards */
+
+  /* ── Cores dos tiers/níveis do CarePoints ── */
+--bronze-claro:   #cd7f32;  /* cor principal do gradiente bronze */
+--bronze-escuro:  #a0522d;  /* cor escura do gradiente bronze */
+--bronze-texto:   #a0522d;  /* cor do nome Bronze */
+--prata-claro:    #c0c0c0;  /* cor principal do gradiente prata */
+--prata-escuro:   #909090;  /* cor escura do gradiente prata */
+--prata-texto:    #707070;  /* cor do nome Prata */
+--ouro-claro:     #ffd700;  /* cor principal do gradiente ouro */
+--ouro-escuro:    #ffa500;  /* cor escura do gradiente ouro */
+--ouro-texto:     #cc8800;  /* cor do nome Ouro */
 }
