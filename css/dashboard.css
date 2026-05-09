@@ -11,6 +11,7 @@ body {
   background: var(--fundo-pagina);
   color: var(--texto-principal);
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* ════════════════════════════════
@@ -130,6 +131,21 @@ body {
   font-size: 1rem;
   color: #fff;
 }
+/* Botão hambúrguer — escondido no desktop, aparece no mobile/tablet */
+.botao-hamburguer {
+  display: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 8px;
+  width: 38px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s;
+}
+.botao-hamburguer:hover { background: rgba(30,158,158,.1); }
+.botao-hamburguer i { font-size: 1.4rem; color: var(--texto-suave); }
 
 /* ════════════════════════════════
    CONTEÚDO PRINCIPAL
@@ -966,15 +982,22 @@ body {
   .coluna-direita { display: grid; grid-template-columns: 1fr 1fr; }
   .area-cards-rotativos { overflow: visible; }
   .slide-rotativo { overflow: hidden; }
+
+  /* Esconde links e mostra hambúrguer no tablet */
+  .links-navegacao { display: none; }
+  .botao-hamburguer { display: flex; }
 }
 
-@media (max-width: 640px) {
-  /* No celular: tudo empilhado */
-  .area-cards-acao    { grid-template-columns: 1fr; }
-  .coluna-direita     { grid-template-columns: 1fr; }
-  .links-navegacao    { display: none; }
-  .conteudo-principal { padding: 1.25rem 1rem 2rem; }
-  .titulo-pagina      { font-size: 1.3rem; }
+@media (max-width: 992px) {
+  /* Em tablet: uma coluna só, sidebar vai embaixo */
+  .grade-dashboard { grid-template-columns: 1fr; }
+
+  /* Sidebar vira grid de 2 colunas em tablet */
+  .coluna-direita { display: grid; grid-template-columns: 1fr 1fr; }
   .area-cards-rotativos { overflow: visible; }
   .slide-rotativo { overflow: hidden; }
+
+  /* Esconde links e mostra hambúrguer no tablet */
+  .links-navegacao { display: none; }
+  .botao-hamburguer { display: flex; }
 }
