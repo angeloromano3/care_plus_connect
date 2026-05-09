@@ -525,6 +525,43 @@ body {
 .detalhe-clima span:first-child { font-size: .7rem; opacity: .75; }
 .detalhe-clima span:last-child  { font-size: .82rem; font-weight: 600; }
 
+/* Botão conectar dispositivo dentro do card de clima */
+.botao-conectar-clima {
+  width: 100%;
+  margin-top: .9rem;
+  padding: .5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.5);
+  background: rgba(255,255,255,.15);
+  color: #fff;
+  font-size: .82rem;
+  cursor: pointer;
+  transition: background .2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .4rem;
+}
+.botao-conectar-clima:hover {
+  background: rgba(255,255,255,.25);
+}
+
+/* Estado bloqueado do card de clima */
+.clima-bloqueado .topo-clima,
+.clima-bloqueado .temperatura,
+.clima-bloqueado .descricao-clima,
+.clima-bloqueado .detalhes-clima {
+  filter: blur(5px);
+  opacity: .4;
+  pointer-events: none;
+}
+
+/* Botão conectar fica visível e clicável */
+.clima-bloqueado .botao-conectar-clima {
+  position: relative;
+  z-index: 2;
+}
+
 /* ── CARDS ROTATIVOS ── */
 .area-cards-rotativos {
   background: var(--fundo-card);
@@ -665,6 +702,191 @@ body {
   transition: opacity .2s;
 }
 .botao-beni:hover { opacity: .9; }
+/* ════════════════════════════════
+   MODAL DE RECOMPENSAS
+   Fica escondido por padrão — só aparece ao clicar em "Ver Recompensas"
+════════════════════════════════ */
+
+/* Overlay escurecido que cobre toda a dashboard */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* Quando ativo — aparece por cima de tudo */
+.modal-overlay.ativo {
+  display: flex;
+}
+
+/* Caixa branca centralizada do modal */
+.modal-caixa {
+  background: var(--fundo-card);
+  border-radius: var(--borda-arredondada);
+  border: 1.5px solid var(--borda);
+  width: 100%;
+  max-width: 1000px;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* Cabeçalho fixo do modal — fica visível ao rolar */
+.modal-cabecalho {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1.5px solid var(--borda);
+  position: sticky;
+  top: 0;
+  background: var(--fundo-card);
+  z-index: 1;
+  border-radius: var(--borda-arredondada) var(--borda-arredondada) 0 0;
+}
+
+.modal-titulo    { font-size: 1rem; font-weight: 700; color: var(--verde-escuro); margin-bottom: .2rem; }
+.modal-subtitulo { font-size: .78rem; color: var(--texto-suave); }
+
+/* Botão X para fechar o modal */
+.modal-fechar {
+  background: none;
+  border: 1.5px solid var(--borda);
+  border-radius: 50%;
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  color: var(--texto-suave);
+  flex-shrink: 0;
+  transition: background .2s;
+}
+.modal-fechar:hover { background: var(--borda); }
+
+/* Corpo do modal */
+.modal-corpo { padding: 1.5rem; }
+
+/* Linha de pontuação + tier no topo do modal */
+.modal-pts-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+}
+.modal-pts-label  { font-size: .75rem; color: var(--texto-suave); text-transform: uppercase; letter-spacing: .6px; margin-bottom: .2rem; }
+.modal-pts-numero { display: flex; align-items: baseline; gap: .3rem; }
+.modal-numero     { font-size: 2rem; font-weight: 700; color: var(--verde-escuro); line-height: 1; }
+.modal-unidade    { font-size: .9rem; color: var(--texto-suave); }
+
+/* Títulos de seção dentro do modal */
+.modal-secao-titulo {
+  font-size: .78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  color: var(--texto-suave);
+  margin: 1.25rem 0 .75rem;
+}
+
+/* Grid de recompensas disponíveis */
+.modal-recompensas-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .75rem;
+  margin-bottom: .5rem;
+}
+
+.modal-recomp-card {
+  background: var(--fundo-pagina);
+  border: 1.5px solid var(--borda);
+  border-radius: 10px;
+  padding: .9rem;
+}
+.modal-recomp-icone  { font-size: 1.4rem; margin-bottom: .4rem; }
+.modal-recomp-titulo { font-size: .82rem; font-weight: 600; color: var(--texto-principal); margin-bottom: .2rem; }
+.modal-recomp-pts    { font-size: .72rem; color: var(--texto-suave); margin-bottom: .6rem; }
+
+.modal-recomp-btn {
+  width: 100%;
+  padding: .4rem;
+  border-radius: 8px;
+  border: none;
+  font-size: .75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.modal-recomp-btn.ativo    { background: var(--verde-escuro); color: #fff; }
+.modal-recomp-btn.bloqueado { background: var(--borda); color: var(--texto-suave); cursor: not-allowed; }
+
+/* Itens de como ganhar pontos */
+.modal-ganhar-item {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  padding: .75rem 0;
+  border-bottom: 1px solid var(--borda);
+}
+.modal-ganhar-item:last-of-type { border-bottom: none; }
+
+.modal-ganhar-icone {
+  width: 36px; height: 36px;
+  border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.modal-ganhar-icone i { font-size: 1rem; }
+
+.modal-ganhar-texto { flex: 1; }
+.modal-ganhar-texto strong { display: block; font-size: .85rem; font-weight: 600; color: var(--texto-principal); }
+.modal-ganhar-texto span   { font-size: .72rem; color: var(--texto-suave); }
+
+.modal-ganhar-pts { font-size: .85rem; font-weight: 700; color: var(--verde-escuro); white-space: nowrap; }
+
+/* Card saiba mais no final do modal */
+.modal-saiba-mais {
+  display: flex;
+  gap: .9rem;
+  align-items: flex-start;
+  background: rgba(30,158,158,.06);
+  border: 1.5px solid rgba(30,158,158,.2);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-top: 1.25rem;
+}
+.modal-saiba-mais i      { font-size: 1.1rem; color: var(--verde-medio); flex-shrink: 0; margin-top: 2px; }
+.modal-saiba-mais strong { display: block; font-size: .85rem; font-weight: 600; color: var(--verde-escuro); margin-bottom: .25rem; }
+.modal-saiba-mais span   { font-size: .75rem; color: var(--texto-suave); line-height: 1.5; }
+
+/* ── SLIDE APPS INTEGRADOS (No Card Rotativo) ── */
+.slide-apps .icone-slide { background: rgba(30,158,158,.1); }
+
+.app-item-mini {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .35rem 0;
+  border-bottom: 1px solid var(--borda);
+}
+.app-item-mini:last-of-type { border-bottom: none; }
+.app-item-mini i    { font-size: .9rem; color: var(--verde-medio); width: 16px; }
+.app-item-mini span { font-size: .75rem; color: var(--texto-principal); flex: 1; }
+
+.botao-app-mini {
+  padding: .2rem .55rem;
+  border: 1.5px solid var(--verde-medio);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--verde-medio);
+  font-size: .7rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.botao-app-mini:hover { background: var(--verde-medio); color: #fff; }
 
 /* ════════════════════════════════
    ANIMAÇÕES
