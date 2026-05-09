@@ -270,6 +270,13 @@ body {
   margin-bottom: .2rem;
 }
 
+/* Subtítulo motivacional abaixo da pontuação (continue sua jornada de recompensas!) */
+.subtitulo-carepoints {
+  font-size: .75rem;
+  color: var(--texto-suave);
+  margin-top: .2rem;
+}
+
 /* Número de pontos em destaque */
 .pontuacao {
   display: flex;
@@ -844,9 +851,20 @@ body {
 .modal-ganhar-texto strong { display: block; font-size: .85rem; font-weight: 600; color: var(--texto-principal); }
 .modal-ganhar-texto span   { font-size: .72rem; color: var(--texto-suave); }
 
-.modal-ganhar-pts { font-size: .85rem; font-weight: 700; color: var(--verde-escuro); white-space: nowrap; }
+/* ── ÍCONES DO MODAL GANHAR PONTOS ── */
+.icone-comparecer { background: rgba(30,158,158,.1); }
+.icone-comparecer i { color: var(--verde-medio); }
 
-/* Card saiba mais no final do modal */
+.icone-remarcar { background: rgba(91,191,142,.1); }
+.icone-remarcar i { color: var(--verde-acento); }
+
+.icone-cancelar { background: rgba(242,139,130,.15); }
+.icone-cancelar i { color: var(--vermelho-acento); }
+
+.icone-preventiva { background: rgba(30,158,158,.1); }
+.icone-preventiva i { color: var(--verde-medio); }
+
+/* Card (saiba mais) no final do modal da dashbord */
 .modal-saiba-mais {
   display: flex;
   gap: .9rem;
@@ -872,7 +890,12 @@ body {
   border-bottom: 1px solid var(--borda);
 }
 .app-item-mini:last-of-type { border-bottom: none; }
-.app-item-mini i    { font-size: .9rem; color: var(--verde-medio); width: 16px; }
+
+.app-item-mini i { font-size: .9rem; width: 16px; }
+.app-maps i       { color: #ea4335; } /* Google Maps — vermelho */
+.app-waze i       { color: #05c8f7; } /* Waze — azul claro */
+.app-calendar i   { color: #4285f4; } /* Google Calendar — azul */
+.app-climatempo i { color: #ff6b35; } /* Climatempo — laranja */
 .app-item-mini span { font-size: .75rem; color: var(--texto-principal); flex: 1; }
 
 .botao-app-mini {
