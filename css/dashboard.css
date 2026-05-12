@@ -976,28 +976,38 @@ body {
 ════════════════════════════════ */
 @media (max-width: 992px) {
   /* Em tablet: uma coluna só, sidebar vai embaixo */
-  .grade-dashboard { grid-template-columns: 1fr; }
+  .grade-dashboard {
+    grid-template-columns: 1fr;
+  }
 
   /* Sidebar vira grid de 2 colunas em tablet */
-  .coluna-direita { display: grid; grid-template-columns: 1fr 1fr; }
-  .area-cards-rotativos { overflow: visible; }
-  .slide-rotativo { overflow: hidden; }
+  .coluna-direita {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .area-cards-rotativos {
+    overflow: visible;
+  }
+
+  .slide-rotativo {
+    overflow: hidden;
+  }
 
   /* Esconde links e mostra hambúrguer no tablet */
-  .links-navegacao { display: none; }
-  .botao-hamburguer { display: flex; }
-}
+  .links-navegacao {
+    display: none;
+  }
 
-@media (max-width: 992px) {
-  /* Em tablet: uma coluna só, sidebar vai embaixo */
-  .grade-dashboard { grid-template-columns: 1fr; }
+  .botao-hamburguer {
+    display: flex;
+  }
 
-  /* Sidebar vira grid de 2 colunas em tablet */
-  .coluna-direita { display: grid; grid-template-columns: 1fr 1fr; }
-  .area-cards-rotativos { overflow: visible; }
-  .slide-rotativo { overflow: hidden; }
-
-  /* Esconde links e mostra hambúrguer no tablet */
-  .links-navegacao { display: none; }
-  .botao-hamburguer { display: flex; }
+  /* Card Beni centralizado */
+  .card-beni {
+    grid-column: 1 / -1;
+    max-width: 360px;
+    width: 100%;
+    margin: 0 auto;
+  }
 }
