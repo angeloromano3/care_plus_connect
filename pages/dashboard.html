@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CarePlus Connect — Dashboard</title>
 
   <!-- Bootstrap CSS via CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
   <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
 
   <!-- Variáveis globais de cor — deve vir antes dos outros CSS -->
-  <link rel="stylesheet" href="../css/variaveis.css"/>
+  <link rel="stylesheet" href="../css/variaveis.css" />
 
   <!-- Estilos compartilhados da navbar -->
-  <link rel="stylesheet" href="../css/navbar.css"/>
+  <link rel="stylesheet" href="../css/navbar.css" />
 
   <!-- CSS customizado da dashboard -->
-  <link rel="stylesheet" href="../css/dashboard.css"/>
+  <link rel="stylesheet" href="../css/dashboard.css" />
 
   <!-- JavaScript da navbar -->
   <script src="../javascript/navbar.js" defer></script>
@@ -26,101 +27,14 @@
   <!-- JavaScript externo da dashboard -->
   <script src="../javascript/dashboard.js" defer></script>
 </head>
+
 <body>
 
   <!-- ================================================
        BARRA DE NAVEGAÇÃO
        Logo + links + sino de notificação + avatar
   ================================================= -->
-  <nav class="barra-navegacao">
-    <div class="navbar-conteudo">
-
-      <!-- Logo clicável que redireciona para a tela inicial/login a index -->
-      <a href="../index.html" class="logo">
-        <span class="care">Care</span><span class="plus">Plus</span> <span class="connect">Connect</span>
-      </a>
-
-      <!-- Links das paginas além do menu principal -->
-      <ul class="links-navegacao">
-        <li><a href="dashboard.html" class="ativo">Início</a></li>
-        <li><a href="#">Consultas</a></li>
-        <li><a href="./historico.html">Histórico</a></li>
-        <li><a href="#">Assistente Virtual</a></li>
-      </ul>
-
-<!-- Sino de notificação + avatar + hamburguer -->
-      <div class="acoes-navbar">
-
-        <!-- Sino com dropdown -->
-        <div class="dropdown-container">
-          <button class="botao-notificacao" id="btn-notificacao" aria-label="Notificações">
-            <i class="bi bi-bell"></i>
-            <span class="ponto-notificacao"></span>
-          </button>
-          <div class="dropdown-menu menu-notificacoes" id="menu-notificacoes">
-            <div class="dropdown-header header-notificacoes">
-              <strong>Notificações</strong>
-              <span class="marcar-lidas">Marcar todas como lidas</span>
-            </div>
-            <hr>
-            <div class="lista-notificacoes">
-              <a href="#" class="item-notificacao nao-lida">
-                <div class="indicador-nao-lida"></div>
-                <div class="conteudo-notificacao">
-                  <strong>Consulta Confirmada</strong>
-                  <p>Sua consulta com Dr. Ana Silva foi confirmada.</p>
-                  <span class="tempo">Há 10 min</span>
-                </div>
-              </a>
-              <a href="#" class="item-notificacao nao-lida">
-                <div class="indicador-nao-lida"></div>
-                <div class="conteudo-notificacao">
-                  <strong>Lembrete de Saúde</strong>
-                  <p>Não se esqueça de beber água hoje!</p>
-                  <span class="tempo">Há 1 hora</span>
-                </div>
-              </a>
-              <a href="#" class="item-notificacao lida">
-                <div class="conteudo-notificacao">
-                  <strong>Sua consulta está pendente</strong>
-                  <p>A consulta ainda não foi confirmada.</p>
-                  <span class="tempo">Ontem</span>
-                </div>
-              </a>
-            </div>
-            <hr>
-            <a href="#" class="dropdown-item ver-todas">Ver todas as notificações</a>
-          </div>
-        </div>
-
-        <!-- Avatar/Hamburguer no mesmo dropdown -->
-        <div class="dropdown-container">
-          <button class="botao-avatar" id="btn-hamburguer" aria-label="Perfil do usuário">
-            <i class="bi bi-person"></i>
-          </button>
-          <button class="botao-hamburguer" id="btn-hamburguer-mobile" aria-label="Menu principal">
-            <i class="bi bi-list"></i>
-          </button>
-          <div class="dropdown-menu" id="menu-hamburguer">
-            <div class="dropdown-header">
-              <strong>Olá, Usuário</strong>
-              <span>usuario@careplus.com</span>
-            </div>
-            <hr>
-            <a href="dashboard.html" class="dropdown-item"><i class="bi bi-house"></i> Início</a>
-            <a href="#" class="dropdown-item"><i class="bi bi-calendar-event"></i> Consultas</a>
-            <a href="./historico.html" class="dropdown-item"><i class="bi bi-clock-history"></i> Histórico</a>
-            <hr>
-            <a href="#" class="dropdown-item"><i class="bi bi-person-badge"></i> Meu Perfil</a>
-            <a href="#" class="dropdown-item"><i class="bi bi-gear"></i> Configurações</a>
-            <hr>
-            <a href="../index.html" class="dropdown-item sair"><i class="bi bi-box-arrow-right"></i> Sair</a>
-          </div>
-        </div>
-
-      </div>
-      </div>
-  </nav>
+  <div id="navbar-placeholder"></div>
   <!-- fim barra de navegação -->
 
   <!-- ================================================
@@ -343,12 +257,12 @@
               <span>26°</span>
             </div>
           </div>
-        <!-- ── BOTÃO CONECTAR DISPOSITIVO ──
+          <!-- ── BOTÃO CONECTAR DISPOSITIVO ──
           Aparece abaixo do card de clima
             Futuramente conecta com API de clima do usuário -->
-<button class="botao-conectar-clima" id="btn-conectar-clima">
-  <i class="bi bi-plug"></i> Conectar dispositivo
-</button>
+          <button class="botao-conectar-clima" id="btn-conectar-clima">
+            <i class="bi bi-plug"></i> Conectar dispositivo
+          </button>
         </div>
         <!-- fim card-clima -->
 
@@ -369,7 +283,8 @@
           <div class="slide-rotativo slide-dica" id="slide-1">
             <div class="icone-slide">💡</div>
             <p class="titulo-slide">Dica de Saúde</p>
-            <p class="descricao-slide">Beber pelo menos 2 litros de água por dia ajuda a manter o bom funcionamento do organismo.</p>
+            <p class="descricao-slide">Beber pelo menos 2 litros de água por dia ajuda a manter o bom funcionamento do
+              organismo.</p>
             <button class="botao-slide" onclick="window.location.href='#'">Saiba mais</button>
           </div>
 
@@ -385,7 +300,8 @@
           <div class="slide-rotativo slide-pontos" id="slide-3">
             <div class="icone-slide">⭐</div>
             <p class="titulo-slide">Quase lá!</p>
-            <p class="descricao-slide">Você está a 65 pontos de atingir o nível Prata. Continue comparecendo às consultas!</p>
+            <p class="descricao-slide">Você está a 65 pontos de atingir o nível Prata. Continue comparecendo às
+              consultas!</p>
             <button class="botao-slide" onclick="window.location.href='#'">Ver recompensas</button>
           </div>
 
@@ -398,32 +314,32 @@
 
             <!-- Google Maps: rotas até a clínica -->
             <div class="app-item-mini app-maps">
-            <i class="bi bi-map"></i>
-            <span>Google Maps</span>
-            <button class="botao-app-mini" id="btn-maps">Conectar</button>
-          </div>
+              <i class="bi bi-map"></i>
+              <span>Google Maps</span>
+              <button class="botao-app-mini" id="btn-maps">Conectar</button>
+            </div>
 
-          <!-- Waze: trânsito em tempo real (uma alternativa do maps) -->
-          <div class="app-item-mini app-waze">
-          <i class="bi bi-car-front"></i>
-          <span>Waze</span>
-          <button class="botao-app-mini" id="btn-waze">Conectar</button>
-          </div>
+            <!-- Waze: trânsito em tempo real (uma alternativa do maps) -->
+            <div class="app-item-mini app-waze">
+              <i class="bi bi-car-front"></i>
+              <span>Waze</span>
+              <button class="botao-app-mini" id="btn-waze">Conectar</button>
+            </div>
 
-          <!-- Google Calendar: lembretes automáticos de consulta -->
-          <div class="app-item-mini app-calendar">
-          <i class="bi bi-calendar-check"></i>
-          <span>Google Calendar</span>
-          <button class="botao-app-mini" id="btn-calendar">Conectar</button>
-        </div>
+            <!-- Google Calendar: lembretes automáticos de consulta -->
+            <div class="app-item-mini app-calendar">
+              <i class="bi bi-calendar-check"></i>
+              <span>Google Calendar</span>
+              <button class="botao-app-mini" id="btn-calendar">Conectar</button>
+            </div>
 
-        <!-- Climatempo: alertas climáticos e remarcação caso não consiga ir a consulta -->
-          <div class="app-item-mini app-climatempo">
-          <i class="bi bi-cloud-sun"></i>
-          <span>Climatempo</span>
-          <button class="botao-app-mini" id="btn-climatempo">Conectar</button>
+            <!-- Climatempo: alertas climáticos e remarcação caso não consiga ir a consulta -->
+            <div class="app-item-mini app-climatempo">
+              <i class="bi bi-cloud-sun"></i>
+              <span>Climatempo</span>
+              <button class="botao-app-mini" id="btn-climatempo">Conectar</button>
+            </div>
           </div>
-        </div>
 
           <!-- Pontos de navegação manual -->
           <div class="pontos-navegacao">
@@ -440,7 +356,7 @@
              Mascote virtual de ajuda com botão para abrir o chat -->
         <div class="card-beni">
           <div class="area-beni">
-            <img src="../assets/imagens/beni.png" alt="Mascote Beni" class="imagem-beni"/>
+            <img src="../assets/imagens/beni.png" alt="Mascote Beni" class="imagem-beni" />
             <!-- Balão de fala do Beni -->
             <!-- botão a decidir se fica ou não ⇣ -->
             <!--span class="balao-beni">Olá! Precisa de ajuda?</!--span-->
@@ -457,176 +373,178 @@
     </div>
     <!-- fim grade-dashboard -->
 
-<!-- ================================================
+    <!-- ================================================
                 MODAL DE RECOMPENSAS
      Abre por cima da dashboard ao clicar em "Ver Recompensas"
 ================================================= -->
 
-<div class="modal-overlay" id="modal-recompensas">
-  <div class="modal-caixa">
+    <div class="modal-overlay" id="modal-recompensas">
+      <div class="modal-caixa">
 
-    <!-- Cabeçalho do modal -->
-    <div class="modal-cabecalho">
-      <div>
-        <p class="modal-titulo">CarePoints — Recompensas</p>
-        <p class="modal-subtitulo">Acompanhe seus pontos e resgate benefícios exclusivos</p>
-      </div>
-      <button class="modal-fechar" id="btn-fechar-modal" aria-label="Fechar modal">
-        <i class="bi bi-x-lg"></i>
-      </button>
-    </div>
-
-    <!-- Corpo do modal -->
-    <div class="modal-corpo">
-
-      <!-- Pontuação + tier/Nível -->
-      <div class="modal-pts-row">
-        <div>
-          <p class="modal-pts-label">Sua pontuação</p>
-          <div class="modal-pts-numero">
-            <span class="modal-numero">35</span>
-            <span class="modal-unidade">pts</span>
+        <!-- Cabeçalho do modal -->
+        <div class="modal-cabecalho">
+          <div>
+            <p class="modal-titulo">CarePoints — Recompensas</p>
+            <p class="modal-subtitulo">Acompanhe seus pontos e resgate benefícios exclusivos</p>
           </div>
+          <button class="modal-fechar" id="btn-fechar-modal" aria-label="Fechar modal">
+            <i class="bi bi-x-lg"></i>
+          </button>
         </div>
-        <div class="badge-tier prata">
-          <div class="icone-tier">🥈</div>
-          <span class="nome-tier">Prata</span>
+
+        <!-- Corpo do modal -->
+        <div class="modal-corpo">
+
+          <!-- Pontuação + tier/Nível -->
+          <div class="modal-pts-row">
+            <div>
+              <p class="modal-pts-label">Sua pontuação</p>
+              <div class="modal-pts-numero">
+                <span class="modal-numero">35</span>
+                <span class="modal-unidade">pts</span>
+              </div>
+            </div>
+            <div class="badge-tier prata">
+              <div class="icone-tier">🥈</div>
+              <span class="nome-tier">Prata</span>
+            </div>
+          </div>
+
+          <!-- Linha de tiers/níveis -->
+          <div class="linha-tiers">
+            <div class="etapa-tier">
+              <div class="bolinha-tier conquistado">🥉</div>
+              <span class="label-tier">Bronze</span>
+            </div>
+            <div class="barra-conexao completa"></div>
+            <div class="etapa-tier">
+              <div class="bolinha-tier atual">🥈</div>
+              <span class="label-tier atual">Prata</span>
+            </div>
+            <div class="barra-conexao parcial"></div>
+            <div class="etapa-tier">
+              <div class="bolinha-tier proximo">🥇</div>
+              <span class="label-tier">Ouro</span>
+            </div>
+
+          </div>
+
+          <!-- Barra de progresso -->
+          <div class="area-progresso">
+            <div class="info-progresso">
+              <span>35 / 100 pts para Prata</span>
+              <span>65 pts restantes</span>
+            </div>
+            <div class="trilha-progresso">
+              <div class="preenchimento-progresso"></div>
+            </div>
+          </div>
+
+          <!-- Recompensas disponíveis -->
+          <p class="modal-secao-titulo">Recompensas disponíveis</p>
+          <div class="modal-recompensas-grid">
+
+            <div class="modal-recomp-card">
+              <div class="modal-recomp-icone">⚡</div>
+              <p class="modal-recomp-titulo">Prioridade no agendamento</p>
+              <p class="modal-recomp-pts">30 pts necessários</p>
+              <button class="modal-recomp-btn ativo">Resgatar</button>
+            </div>
+
+            <div class="modal-recomp-card">
+              <div class="modal-recomp-icone">🎫</div>
+              <p class="modal-recomp-titulo">Consulta com desconto</p>
+              <p class="modal-recomp-pts">50 pts necessários</p>
+              <button class="modal-recomp-btn bloqueado">Faltam 15 pts</button>
+            </div>
+
+            <div class="modal-recomp-card">
+              <div class="modal-recomp-icone">📋</div>
+              <p class="modal-recomp-titulo">Exame gratuito</p>
+              <p class="modal-recomp-pts">80 pts necessários</p>
+              <button class="modal-recomp-btn bloqueado">Faltam 45 pts</button>
+            </div>
+
+            <div class="modal-recomp-card">
+              <div class="modal-recomp-icone">🎁</div>
+              <p class="modal-recomp-titulo">Kit saúde Care Plus</p>
+              <p class="modal-recomp-pts">100 pts necessários</p>
+              <button class="modal-recomp-btn bloqueado">Faltam 65 pts</button>
+            </div>
+
+          </div>
+
+          <!-- Como ganhar pontos -->
+          <p class="modal-secao-titulo">Como ganhar pontos</p>
+
+          <!-- Item: comparecer à consulta — +10 pts -->
+          <div class="modal-ganhar-item">
+            <div class="modal-ganhar-icone icone-comparecer">
+              <i class="bi bi-calendar-check"></i>
+            </div>
+            <div class="modal-ganhar-texto">
+              <strong>Comparecer à consulta</strong>
+              <span>Confirmado automaticamente após a consulta realizada</span>
+            </div>
+            <span class="modal-ganhar-pts">+10 pts</span>
+          </div>
+
+          <!-- Item: remarcar com antecedência — +5 pts -->
+          <div class="modal-ganhar-item">
+            <div class="modal-ganhar-icone icone-remarcar">
+              <i class="bi bi-arrow-clockwise"></i>
+            </div>
+            <div class="modal-ganhar-texto">
+              <strong>Remarcar com antecedência</strong>
+              <span>Válido para remarcações feitas com mais de 24h de antecedência</span>
+            </div>
+            <span class="modal-ganhar-pts">+5 pts</span>
+          </div>
+
+          <!-- Item: cancelar com antecedência — +3 pts -->
+          <div class="modal-ganhar-item">
+            <div class="modal-ganhar-icone icone-cancelar">
+              <i class="bi bi-x-circle"></i>
+            </div>
+            <div class="modal-ganhar-texto">
+              <strong>Cancelar com antecedência</strong>
+              <span>Válido para cancelamentos com mais de 48h de antecedência</span>
+            </div>
+            <span class="modal-ganhar-pts">+3 pts</span>
+          </div>
+
+          <!-- Item: consulta preventiva — +15 pts -->
+          <div class="modal-ganhar-item">
+            <div class="modal-ganhar-icone icone-preventiva">
+              <i class="bi bi-star"></i>
+            </div>
+            <div class="modal-ganhar-texto">
+              <strong>Consulta preventiva</strong>
+              <span>Check-ups e consultas de prevenção valem mais pontos!</span>
+            </div>
+            <span class="modal-ganhar-pts">+15 pts</span>
+          </div>
+
+          <!-- Card clicável que leva para a página explicativa dos CarePoints -->
+          <button class="modal-saiba-mais" onclick="window.location.href='#'">
+            <i class="bi bi-info-circle"></i>
+            <div>
+              <strong>Quer saber mais sobre o programa?</strong>
+              <span>Pontos expiram após 12 meses sem atividade. Não comparecer sem aviso não gera pontos. Pontos são
+                acumulativos entre consultas.</span>
+            </div>
+          </button>
+
         </div>
+        <!-- fim modal-corpo -->
+
       </div>
-
-      <!-- Linha de tiers/níveis -->
-      <div class="linha-tiers">
-        <div class="etapa-tier">
-          <div class="bolinha-tier conquistado">🥉</div>
-          <span class="label-tier">Bronze</span>
-        </div>
-        <div class="barra-conexao completa"></div>
-        <div class="etapa-tier">
-          <div class="bolinha-tier atual">🥈</div>
-          <span class="label-tier atual">Prata</span>
-        </div>
-        <div class="barra-conexao parcial"></div>
-        <div class="etapa-tier">
-          <div class="bolinha-tier proximo">🥇</div>
-          <span class="label-tier">Ouro</span>
-        </div>
-  
-      </div>
-
-      <!-- Barra de progresso -->
-      <div class="area-progresso">
-        <div class="info-progresso">
-          <span>35 / 100 pts para Prata</span>
-          <span>65 pts restantes</span>
-        </div>
-        <div class="trilha-progresso">
-          <div class="preenchimento-progresso"></div>
-        </div>
-      </div>
-
-      <!-- Recompensas disponíveis -->
-      <p class="modal-secao-titulo">Recompensas disponíveis</p>
-      <div class="modal-recompensas-grid">
-
-        <div class="modal-recomp-card">
-          <div class="modal-recomp-icone">⚡</div>
-          <p class="modal-recomp-titulo">Prioridade no agendamento</p>
-          <p class="modal-recomp-pts">30 pts necessários</p>
-          <button class="modal-recomp-btn ativo">Resgatar</button>
-        </div>
-
-        <div class="modal-recomp-card">
-          <div class="modal-recomp-icone">🎫</div>
-          <p class="modal-recomp-titulo">Consulta com desconto</p>
-          <p class="modal-recomp-pts">50 pts necessários</p>
-          <button class="modal-recomp-btn bloqueado">Faltam 15 pts</button>
-        </div>
-
-        <div class="modal-recomp-card">
-          <div class="modal-recomp-icone">📋</div>
-          <p class="modal-recomp-titulo">Exame gratuito</p>
-          <p class="modal-recomp-pts">80 pts necessários</p>
-          <button class="modal-recomp-btn bloqueado">Faltam 45 pts</button>
-        </div>
-
-        <div class="modal-recomp-card">
-          <div class="modal-recomp-icone">🎁</div>
-          <p class="modal-recomp-titulo">Kit saúde Care Plus</p>
-          <p class="modal-recomp-pts">100 pts necessários</p>
-          <button class="modal-recomp-btn bloqueado">Faltam 65 pts</button>
-        </div>
-
-      </div>
-
-      <!-- Como ganhar pontos -->
-      <p class="modal-secao-titulo">Como ganhar pontos</p>
-      
-      <!-- Item: comparecer à consulta — +10 pts -->
-      <div class="modal-ganhar-item">
-        <div class="modal-ganhar-icone icone-comparecer">
-          <i class="bi bi-calendar-check"></i>
-        </div>
-        <div class="modal-ganhar-texto">
-          <strong>Comparecer à consulta</strong>
-          <span>Confirmado automaticamente após a consulta realizada</span>
-        </div>
-        <span class="modal-ganhar-pts">+10 pts</span>
-      </div>
-      
-  <!-- Item: remarcar com antecedência — +5 pts -->
-      <div class="modal-ganhar-item">
-        <div class="modal-ganhar-icone icone-remarcar">
-          <i class="bi bi-arrow-clockwise"></i>
-        </div>
-        <div class="modal-ganhar-texto">
-          <strong>Remarcar com antecedência</strong>
-          <span>Válido para remarcações feitas com mais de 24h de antecedência</span>
-        </div>
-        <span class="modal-ganhar-pts">+5 pts</span>
-      </div>
-
-      <!-- Item: cancelar com antecedência — +3 pts -->
-      <div class="modal-ganhar-item">
-        <div class="modal-ganhar-icone icone-cancelar">
-        <i class="bi bi-x-circle"></i>
-        </div>
-        <div class="modal-ganhar-texto">
-          <strong>Cancelar com antecedência</strong>
-          <span>Válido para cancelamentos com mais de 48h de antecedência</span>
-        </div>
-        <span class="modal-ganhar-pts">+3 pts</span>
-      </div>
-
-      <!-- Item: consulta preventiva — +15 pts -->
-      <div class="modal-ganhar-item">
-        <div class="modal-ganhar-icone icone-preventiva">
-        <i class="bi bi-star"></i>
-      </div>
-        <div class="modal-ganhar-texto">
-          <strong>Consulta preventiva</strong>
-          <span>Check-ups e consultas de prevenção valem mais pontos!</span>
-        </div>
-        <span class="modal-ganhar-pts">+15 pts</span>
-      </div>
-
-    <!-- Card clicável que leva para a página explicativa dos CarePoints -->
-    <button class="modal-saiba-mais" onclick="window.location.href='#'">
-      <i class="bi bi-info-circle"></i>
-      <div>
-        <strong>Quer saber mais sobre o programa?</strong>
-        <span>Pontos expiram após 12 meses sem atividade. Não comparecer sem aviso não gera pontos. Pontos são acumulativos entre consultas.</span>
-      </div>
-    </button>
-
     </div>
-    <!-- fim modal-corpo -->
-
-  </div>
-</div>
-<!-- fim modal-recompensas -->
+    <!-- fim modal-recompensas -->
 
   </main>
   <!-- fim conteudo-principal -->
 
 </body>
+
 </html>

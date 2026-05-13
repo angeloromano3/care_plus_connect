@@ -15,167 +15,6 @@ body {
     overflow-x: hidden;
 }
 
-/* =========== MENU =================== */
-.barra-navegacao {
-    background: #fff;
-    border-bottom: 1px solid var(--borda);
-    padding: 0 2rem;
-    height: 64px;
-    position: sticky;
-    /* Gruda no topo ao rolar a página */
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 1px 8px rgba(26, 122, 122, .07);
-}
-
-/* Container interno da navbar com largura máxima */
-.navbar-conteudo {
-    max-width: 1200px;
-    margin: 0 auto;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-}
-
-/* Logo */
-.logo {
-    font-family: Georgia, serif;
-    font-size: 1.4rem;
-    text-decoration: none;
-    letter-spacing: -.3px;
-    flex-shrink: 0;
-}
-
-.logo .care {
-    color: var(--verde-escuro);
-}
-
-.logo .plus {
-    color: var(--verde-acento);
-}
-
-.logo .connect {
-    color: var(--verde-medio);
-    font-style: italic;
-}
-
-/* Links de navegação */
-.links-navegacao {
-    display: flex;
-    list-style: none;
-    gap: .25rem;
-    margin: 0 auto;
-}
-
-.links-navegacao a {
-    text-decoration: none;
-    color: var(--texto-suave);
-    font-size: .9rem;
-    font-weight: 500;
-    padding: .4rem .9rem;
-    border-radius: 8px;
-    transition: background .2s, color .2s;
-}
-
-.links-navegacao a:hover,
-.links-navegacao a.ativo {
-    background: rgba(30, 158, 158, .1);
-    color: var(--verde-escuro);
-}
-
-/* Botões do lado direito da navbar */
-.acoes-navbar {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    flex-shrink: 0;
-}
-
-/* Botão de notificações */
-.botao-notificacao {
-    border: none;
-    background: none;
-    cursor: pointer;
-    border-radius: 50%;
-    width: 38px;
-    height: 38px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background .2s;
-    position: relative;
-}
-
-.botao-notificacao:hover {
-    background: rgba(30, 158, 158, .1);
-}
-
-/* Ícone do sino — Bootstrap Icons */
-.botao-notificacao i {
-    font-size: 1.1rem;
-    color: var(--texto-suave);
-}
-
-/* Bolinha vermelha de notificação não lida */
-.ponto-notificacao {
-    position: absolute;
-    top: 6px;
-    right: 6px;
-    width: 8px;
-    height: 8px;
-    background: var(--vermelho-acento);
-    border-radius: 50%;
-    border: 2px solid #fff;
-}
-
-/* Botão avatar do usuário */
-.botao-avatar {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: var(--verde-escuro);
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background .2s;
-}
-
-.botao-avatar:hover {
-    background: var(--verde-medio);
-}
-
-/* Ícone do avatar — Bootstrap Icons */
-.botao-avatar i {
-    font-size: 1rem;
-    color: #fff;
-}
-
-/* Botão hambúrguer — escondido no desktop, aparece no mobile/tablet */
-.botao-hamburguer {
-    display: none;
-    border: none;
-    background: none;
-    cursor: pointer;
-    border-radius: 8px;
-    width: 38px;
-    height: 38px;
-    align-items: center;
-    justify-content: center;
-    transition: background .2s;
-}
-
-.botao-hamburguer:hover {
-    background: rgba(30, 158, 158, .1);
-}
-
-.botao-hamburguer i {
-    font-size: 1.4rem;
-    color: var(--texto-suave);
-}
-
 /* =========== CONTEUDO PRINCIPAL =============== */
 .conteudo-principal {
     padding: 2%;
@@ -337,7 +176,7 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    overflow-y: auto; 
+    overflow-y: auto;
 
 }
 
@@ -654,8 +493,9 @@ body {
     .message {
         max-width: 90%;
     }
+
     .barra-chat {
-        padding-bottom: 24px; 
+        padding-bottom: 24px;
     }
 
 }
@@ -757,7 +597,7 @@ body {
 
     .barra-chat {
         margin-top: 14px;
-        padding-bottom: 18px; 
+        padding-bottom: 18px;
     }
 
     .barra-chat form {

@@ -20,50 +20,18 @@
 
     <!-- JavaScript do chatbot -->
     <script defer src="../javascript/chatbot.js"></script>
+
+    <!-- Estilos compartilhados da navbar -->
+    <link rel="stylesheet" href="../css/navbar.css" />
+
+    <!-- JavaScript da navbar -->
+    <script src="../javascript/navbar.js" defer></script>
 </head>
 
 <body>
 
-    <!-- ================================================
-       BARRA DE NAVEGAÇÃO
-       Logo + links + sino de notificação + avatar
-  ================================================= -->
-    <nav class="barra-navegacao">
-        <div class="navbar-conteudo">
+    <div id="navbar-placeholder"></div>
 
-            <!-- Logo clicável que redireciona para a tela inicial/login a index -->
-            <a href="../index.html" class="logo">
-                <span class="care">Care</span><span class="plus">Plus</span> <span class="connect">Connect</span>
-            </a>
-
-            <!-- Links do menu principal -->
-            <ul class="links-navegacao">
-                <li><a href="dashboard.html" class="ativo">Início</a></li>
-                <li><a href="#">Consultas</a></li>
-                <li><a href="#">Colaboradores</a></li>
-                <li><a href="#">Relatórios</a></li>
-            </ul>
-
-            <!-- Sino de notificação + avatar do usuário -->
-            <div class="acoes-navbar">
-                <button class="botao-notificacao" aria-label="Notificações">
-                    <i class="bi bi-bell"></i>
-                    <!-- Bolinha vermelha indica notificações não lidas -->
-                    <span class="ponto-notificacao"></span>
-                </button>
-
-                <!-- Avatar do usuário -->
-                <button class="botao-avatar" aria-label="Perfil do usuário">
-                    <i class="bi bi-person"></i>
-                </button>
-            </div>
-            <!-- Botão hambúrguer — visível apenas no mobile/tablet -->
-            <button class="botao-hamburguer" id="btn-hamburguer" aria-label="Menu">
-                <i class="bi bi-list"></i>
-            </button>
-        </div>
-    </nav>
-    <!-- fim barra de navegação -->
 
     <main class="conteudo-principal">
 
@@ -104,7 +72,7 @@
             </div> <!-- Fim das opções -->
 
             <div class="chat-container">
-                
+
                 <div class="creative-content">
                     <img class="img-beni-chat" src="../assets/imagens/beni.png" alt="Beni, o assistente virtual">
                     <h3>Olá! Eu sou o Beni</h3>
