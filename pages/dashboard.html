@@ -5,20 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CarePlus Connect — Dashboard</title>
 
-<!-- Bootstrap CSS via CDN -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Bootstrap CSS via CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
 
-<!-- Bootstrap Icons -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"/>
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"/>
 
-<!-- Variáveis globais de cor — deve vir antes dos outros CSS -->
-<link rel="stylesheet" href="../css/variaveis.css"/>
+  <!-- Variáveis globais de cor — deve vir antes dos outros CSS -->
+  <link rel="stylesheet" href="../css/variaveis.css"/>
 
-<!-- CSS customizado da dashboard -->
-<link rel="stylesheet" href="../css/dashboard.css"/>
+  <!-- Estilos compartilhados da navbar -->
+  <link rel="stylesheet" href="../css/navbar.css"/>
 
-<!-- JavaScript externo da dashboard -->
-<script src="../javascript/dashboard.js" defer></script>
+  <!-- CSS customizado da dashboard -->
+  <link rel="stylesheet" href="../css/dashboard.css"/>
+
+  <!-- JavaScript da navbar -->
+  <script src="../javascript/navbar.js" defer></script>
+
+  <!-- JavaScript externo da dashboard -->
+  <script src="../javascript/dashboard.js" defer></script>
 </head>
 <body>
 
@@ -34,30 +40,85 @@
         <span class="care">Care</span><span class="plus">Plus</span> <span class="connect">Connect</span>
       </a>
 
-      <!-- Links do menu principal -->
+      <!-- Links das paginas além do menu principal -->
       <ul class="links-navegacao">
         <li><a href="dashboard.html" class="ativo">Início</a></li>
         <li><a href="#">Consultas</a></li>
         <li><a href="./historico.html">Histórico</a></li>
+        <li><a href="#">Assistente Virtual</a></li>
       </ul>
 
-      <!-- Sino de notificação + avatar do usuário -->
-       <div class="acoes-navbar">
-      <button class="botao-notificacao" aria-label="Notificações">
-  <i class="bi bi-bell"></i>
-  <!-- Bolinha vermelha indica notificações não lidas -->
-  <span class="ponto-notificacao"></span>
-        </button>
+<!-- Sino de notificação + avatar + hamburguer -->
+      <div class="acoes-navbar">
 
-                  <!-- Avatar do usuário -->
-      <button class="botao-avatar" aria-label="Perfil do usuário">
-          <i class="bi bi-person"></i>
-            </button>
+        <!-- Sino com dropdown -->
+        <div class="dropdown-container">
+          <button class="botao-notificacao" id="btn-notificacao" aria-label="Notificações">
+            <i class="bi bi-bell"></i>
+            <span class="ponto-notificacao"></span>
+          </button>
+          <div class="dropdown-menu menu-notificacoes" id="menu-notificacoes">
+            <div class="dropdown-header header-notificacoes">
+              <strong>Notificações</strong>
+              <span class="marcar-lidas">Marcar todas como lidas</span>
             </div>
-        <!-- Botão hambúrguer — visível apenas no mobile/tablet -->
-      <button class="botao-hamburguer" id="btn-hamburguer" aria-label="Menu">
-        <i class="bi bi-list"></i>
-      </button>
+            <hr>
+            <div class="lista-notificacoes">
+              <a href="#" class="item-notificacao nao-lida">
+                <div class="indicador-nao-lida"></div>
+                <div class="conteudo-notificacao">
+                  <strong>Consulta Confirmada</strong>
+                  <p>Sua consulta com Dr. Ana Silva foi confirmada.</p>
+                  <span class="tempo">Há 10 min</span>
+                </div>
+              </a>
+              <a href="#" class="item-notificacao nao-lida">
+                <div class="indicador-nao-lida"></div>
+                <div class="conteudo-notificacao">
+                  <strong>Lembrete de Saúde</strong>
+                  <p>Não se esqueça de beber água hoje!</p>
+                  <span class="tempo">Há 1 hora</span>
+                </div>
+              </a>
+              <a href="#" class="item-notificacao lida">
+                <div class="conteudo-notificacao">
+                  <strong>Sua consulta está pendente</strong>
+                  <p>A consulta ainda não foi confirmada.</p>
+                  <span class="tempo">Ontem</span>
+                </div>
+              </a>
+            </div>
+            <hr>
+            <a href="#" class="dropdown-item ver-todas">Ver todas as notificações</a>
+          </div>
+        </div>
+
+        <!-- Avatar/Hamburguer no mesmo dropdown -->
+        <div class="dropdown-container">
+          <button class="botao-avatar" id="btn-hamburguer" aria-label="Perfil do usuário">
+            <i class="bi bi-person"></i>
+          </button>
+          <button class="botao-hamburguer" id="btn-hamburguer-mobile" aria-label="Menu principal">
+            <i class="bi bi-list"></i>
+          </button>
+          <div class="dropdown-menu" id="menu-hamburguer">
+            <div class="dropdown-header">
+              <strong>Olá, Usuário</strong>
+              <span>usuario@careplus.com</span>
+            </div>
+            <hr>
+            <a href="dashboard.html" class="dropdown-item"><i class="bi bi-house"></i> Início</a>
+            <a href="#" class="dropdown-item"><i class="bi bi-calendar-event"></i> Consultas</a>
+            <a href="./historico.html" class="dropdown-item"><i class="bi bi-clock-history"></i> Histórico</a>
+            <hr>
+            <a href="#" class="dropdown-item"><i class="bi bi-person-badge"></i> Meu Perfil</a>
+            <a href="#" class="dropdown-item"><i class="bi bi-gear"></i> Configurações</a>
+            <hr>
+            <a href="../index.html" class="dropdown-item sair"><i class="bi bi-box-arrow-right"></i> Sair</a>
+          </div>
+        </div>
+
+      </div>
       </div>
   </nav>
   <!-- fim barra de navegação -->
