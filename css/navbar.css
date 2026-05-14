@@ -243,3 +243,18 @@
   .dropdown-menu { max-width: calc(100vw - 20px); }
   .menu-notificacoes { width: 300px; right: -45px; }
 }
+
+/* Forçar os ícones da navbar a ficarem lado a lado em qualquer ecrã */
+.acoes-navbar {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 15px; /* Espaçamento entre o sininho e o menu hambúrguer */
+}
+
+/* Garantir que os contentores dos botões não ocupem a linha toda */
+.acoes-navbar .dropdown-container {
+    display: block;
+    width: auto;
+    margin: 0;
+}
