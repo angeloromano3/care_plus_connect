@@ -15,94 +15,7 @@
 </head>
 
 <body>
-    <nav class="barra-navegacao">
-        <div class="navbar-conteudo">
-
-            <a href="../pages/dashboard.html" class="logo">
-                <span class="care">Care</span><span class="plus">Plus</span> <span class="connect">Connect</span>
-            </a>
-
-            <ul class="links-navegacao">
-                <li><a href="../pages/dashboard.html">Início</a></li>
-                <li><a href="#">Consultas</a></li>
-                <li><a href="../pages/historico.html">Histórico</a></li>
-                <li><a href="../pages/chatbot.html">Assistente Virtual</a></li>
-
-            </ul>
-
-            <div class="acoes-navbar">
-                <div class="dropdown-container">
-                    <button class="botao-notificacao" id="btn-notificacao" aria-label="Notificações">
-                        <i class="bi bi-bell"></i>
-                        <span class="ponto-notificacao"></span>
-                    </button>
-
-                    <div class="dropdown-menu menu-notificacoes" id="menu-notificacoes">
-                        <div class="dropdown-header header-notificacoes">
-                            <strong>Notificações</strong>
-                            <span class="marcar-lidas">Marcar todas como lidas</span>
-                        </div>
-                        <hr>
-
-                        <div class="lista-notificacoes">
-                            <a href="#" class="item-notificacao nao-lida">
-                                <div class="indicador-nao-lida"></div>
-                                <div class="conteudo-notificacao">
-                                    <strong>Consulta Confirmada</strong>
-                                    <p>Sua consulta com Dr. Ana Silva foi confirmada.</p>
-                                    <span class="tempo">Há 10 min</span>
-                                </div>
-                            </a>
-
-                            <a href="#" class="item-notificacao nao-lida">
-                                <div class="indicador-nao-lida"></div>
-                                <div class="conteudo-notificacao">
-                                    <strong>Lembrete de Saúde</strong>
-                                    <p>Não se esqueça de beber água hoje!</p>
-                                    <span class="tempo">Há 1 hora</span>
-                                </div>
-                            </a>
-
-                            <a href="#" class="item-notificacao lida">
-                                <div class="conteudo-notificacao">
-                                    <strong>Sua consulta está pendente</strong>
-                                    <p>A consulta ainda não foi confirmada.</p>
-                                    <span class="tempo">Ontem</span>
-                                </div>
-                            </a>
-                        </div>
-
-                        <hr>
-                        <a href="#" class="dropdown-item ver-todas">Ver todas as notificações</a>
-                    </div>
-                </div>
-
-                <div class="dropdown-container">
-                    <button class="botao-hamburguer" id="btn-hamburguer" aria-label="Menu principal">
-                        <i class="bi bi-list"></i>
-                    </button>
-
-                    <div class="dropdown-menu" id="menu-hamburguer">
-                        <div class="dropdown-header">
-                            <strong>Olá, Usuário</strong>
-                            <span>usuario@careplus.com</span>
-                        </div>
-                        <hr>
-                        <a href="../pages/dashboard.html" class="dropdown-item"><i class="bi bi-house"></i> Início</a>
-                        <a href="#" class="dropdown-item"><i class="bi bi-calendar-event"></i> Consultas</a>
-                        <a href="../pages/historico.html" class="dropdown-item"><i class="bi bi-clock-history"></i>
-                            Histórico</a>
-                        <hr>
-                        <a href="#" class="dropdown-item"><i class="bi bi-person-badge"></i> Meu Perfil</a>
-                        <a href="#" class="dropdown-item"><i class="bi bi-gear"></i> Configurações</a>
-                        <hr>
-                        <a href="../index.html" class="dropdown-item sair"><i class="bi bi-box-arrow-right"></i>
-                            Sair</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <div id="navbar-placeholder"></div>
 
     <main class="conteudo-principal">
         <div class="card-painel">
@@ -164,7 +77,8 @@
 
             <!-- Botões GPS (Waze e Maps) -->
             <div class="gps-botoes" id="container-gps" style="display: none;">
-                <button class="btn-gps btn-waze" id="btn-waze"><i class="bi bi-car-front-fill"></i> Waze</button>
+                <button class="btn-gps btn-waze" id="btn-waze"><i class="bi bi-car-front-fill"></i>
+                    Waze</button>
                 <button class="btn-gps btn-maps" id="btn-maps"><i class="bi bi-geo-alt-fill"></i> Maps</button>
             </div>
         </div>

@@ -63,13 +63,7 @@
   color: var(--verde-escuro);
 }
 
-/* ── AÇÕES DA NAVBAR (direita) ── */
-.acoes-navbar {
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-  flex-shrink: 0;
-}
+
 
 /* ── BOTÃO DE NOTIFICAÇÕES ── */
 .botao-notificacao {

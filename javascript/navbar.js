@@ -68,10 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
 
-                <div class="dropdown-container">
-                    <button class="botao-avatar" id="btn-hamburguer" aria-label="Perfil do usuário">
-                        <i class="bi bi-person"></i>
-                    </button>
+                
                     <button class="botao-hamburguer" id="btn-hamburguer-mobile" aria-label="Menu principal">
                         <i class="bi bi-list"></i>
                     </button>
