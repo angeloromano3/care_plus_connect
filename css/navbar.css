@@ -107,7 +107,7 @@
     pointer-events: none; 
 }
 
-/* Devolve a permissão de clique apenas quando o menu estiver aberto/visível. 
+/* Devolve a permissão de clique apenas quando o menu estiver aberto/visível. */
 .dropdown-menu.mostrar,
 .dropdown-menu.active,
 .dropdown-menu.ativo,
