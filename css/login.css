@@ -13,10 +13,10 @@
 }
 
 body {
-  font-family: var(--bs-font-sans-serif);
-  height: 100vh;
-  overflow: hidden;
-  background: #fff;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: var(--fundo-pagina);
+    color: var(--texto-principal);
+    min-height: 100vh;
 }
 
 /* ── ESTRUTURA PRINCIPAL ──

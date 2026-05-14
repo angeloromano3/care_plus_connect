@@ -13,7 +13,7 @@
   position: sticky;
   top: 0;
   z-index: 200;
-  box-shadow: 0 1px 8px rgba(26,122,122,.07);
+  box-shadow: 0 1px 8px rgba(26, 122, 122, .07);
 }
 
 .navbar-conteudo {
@@ -35,9 +35,19 @@
   letter-spacing: -.3px;
   flex-shrink: 0;
 }
-.logo .care    { color: var(--verde-escuro); }
-.logo .plus    { color: var(--verde-acento); }
-.logo .connect { color: var(--verde-medio); font-style: italic; }
+
+.logo .care {
+  color: var(--verde-escuro);
+}
+
+.logo .plus {
+  color: var(--verde-acento);
+}
+
+.logo .connect {
+  color: var(--verde-medio);
+  font-style: italic;
+}
 
 /* ── LINKS DE NAVEGAÇÃO ── */
 .links-navegacao {
@@ -48,6 +58,7 @@
   padding: 0;
   margin-bottom: 0;
 }
+
 .links-navegacao a {
   text-decoration: none;
   color: var(--texto-suave);
@@ -57,9 +68,10 @@
   border-radius: 8px;
   transition: background .2s, color .2s;
 }
+
 .links-navegacao a:hover,
 .links-navegacao a.ativo {
-  background: rgba(30,158,158,.1);
+  background: rgba(30, 158, 158, .1);
   color: var(--verde-escuro);
 }
 
@@ -79,14 +91,23 @@
   transition: background .2s;
   position: relative;
 }
-.botao-notificacao:hover { background: rgba(30,158,158,.1); }
-.botao-notificacao i { font-size: 1.1rem; color: var(--texto-suave); }
+
+.botao-notificacao:hover {
+  background: rgba(30, 158, 158, .1);
+}
+
+.botao-notificacao i {
+  font-size: 1.1rem;
+  color: var(--texto-suave);
+}
 
 /* Bolinha vermelha de notificação não lida */
 .ponto-notificacao {
   position: absolute;
-  top: 6px; right: 6px;
-  width: 8px; height: 8px;
+  top: 6px;
+  right: 6px;
+  width: 8px;
+  height: 8px;
   background: var(--vermelho-acento);
   border-radius: 50%;
   border: 2px solid #fff;
@@ -96,9 +117,9 @@
    CORREÇÃO DO MENU INVISÍVEL COBRINDO A TELA
 ========================================= */
 .dropdown-menu {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none; 
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 /* Devolve a permissão de clique apenas quando o menu estiver aberto/visível. */
@@ -106,9 +127,9 @@
 .dropdown-menu.active,
 .dropdown-menu.ativo,
 .dropdown-container:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto; 
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 /* ── BOTÃO HAMBÚRGUER ── */
@@ -124,8 +145,15 @@
   justify-content: center;
   transition: background .2s;
 }
-.botao-hamburguer:hover { background: rgba(30,158,158,.1); }
-.botao-hamburguer i { font-size: 1.4rem; color: var(--texto-suave); }
+
+.botao-hamburguer:hover {
+  background: rgba(30, 158, 158, .1);
+}
+
+.botao-hamburguer i {
+  font-size: 1.4rem;
+  color: var(--texto-suave);
+}
 
 /* ── MENUS DROPDOWN ── */
 .dropdown-container {
@@ -141,7 +169,6 @@
   min-width: 220px;
   border-radius: 10px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  border: 1px solid var(--borda);
   opacity: 0;
   visibility: visible;
   transform: translateY(-10px);
@@ -149,6 +176,10 @@
   z-index: 1000;
   display: flex;
   flex-direction: column;
+  padding: 8px 0 !important;
+  margin: 6px 0 !important;
+  border: 0;
+  border-top: 1px solid #eaeaea;
 }
 
 .dropdown-menu.mostrar {
@@ -162,14 +193,26 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+  padding: 12px 20px 8px 20px !important;
 }
-.dropdown-header strong { color: var(--verde-escuro); font-size: 15px; }
-.dropdown-header span   { color: var(--texto-suave);  font-size: 13px; }
 
-.dropdown-menu hr { border: 0; border-top: 1px solid var(--borda); margin: 0; }
+.dropdown-header strong {
+  color: var(--verde-escuro);
+  font-size: 15px;
+}
+
+.dropdown-header span {
+  color: var(--texto-suave);
+  font-size: 13px;
+}
+
+.dropdown-menu hr {
+  border: 0;
+  border-top: 1px solid var(--borda);
+  margin: 0;
+}
 
 .dropdown-item {
-  padding: 12px 20px;
   text-decoration: none;
   color: var(--texto-principal);
   font-size: 14px;
@@ -177,13 +220,30 @@
   align-items: center;
   gap: 12px;
   transition: background 0.2s;
+  padding: 3px 20px !important;
+  /* Antes devia estar uns 12px ou 15px. Reduzi para 8px em cima e embaixo */
+  color: #333;
+  text-decoration: none;
+  font-size: 15px;
 }
-.dropdown-item:hover { background-color: rgba(27, 176, 173, 0.12); color: var(--verde-medio); }
-.dropdown-item.sair  { color: var(--vermelho-acento); }
-.dropdown-item.sair:hover { background-color: #fff0f0; }
+
+.dropdown-item:hover {
+  background-color: rgba(27, 176, 173, 0.12);
+  color: var(--verde-medio);
+}
+
+.dropdown-item.sair {
+  color: var(--vermelho-acento);
+}
+
+.dropdown-item.sair:hover {
+  background-color: #fff0f0;
+}
 
 /* ── MENU DE NOTIFICAÇÕES ── */
-.menu-notificacoes { width: 320px; }
+.menu-notificacoes {
+  width: 320px;
+}
 
 .header-notificacoes {
   flex-direction: row;
@@ -191,10 +251,20 @@
   align-items: center;
 }
 
-.marcar-lidas { font-size: 11px !important; color: var(--verde-medio) !important; cursor: pointer; }
-.marcar-lidas:hover { text-decoration: underline; }
+.marcar-lidas {
+  font-size: 11px !important;
+  color: var(--verde-medio) !important;
+  cursor: pointer;
+}
 
-.lista-notificacoes { max-height: 320px; overflow-y: auto; }
+.marcar-lidas:hover {
+  text-decoration: underline;
+}
+
+.lista-notificacoes {
+  max-height: 320px;
+  overflow-y: auto;
+}
 
 .item-notificacao {
   display: flex;
@@ -205,13 +275,26 @@
   border-bottom: 1px solid var(--borda);
   transition: background 0.2s;
 }
-.item-notificacao:last-child  { border-bottom: none; }
-.item-notificacao.nao-lida    { background-color: rgba(27, 176, 173, 0.12); }
-.item-notificacao.lida        { background-color: #ffffff; }
-.item-notificacao:hover       { background-color: #f0f6f4; }
+
+.item-notificacao:last-child {
+  border-bottom: none;
+}
+
+.item-notificacao.nao-lida {
+  background-color: rgba(27, 176, 173, 0.12);
+}
+
+.item-notificacao.lida {
+  background-color: #ffffff;
+}
+
+.item-notificacao:hover {
+  background-color: #f0f6f4;
+}
 
 .indicador-nao-lida {
-  width: 8px; height: 8px;
+  width: 8px;
+  height: 8px;
   background-color: var(--vermelho-acento);
   border-radius: 50%;
   margin-top: 5px;
@@ -219,42 +302,82 @@
   flex-shrink: 0;
 }
 
-.item-notificacao.lida .conteudo-notificacao { margin-left: 20px; }
+.item-notificacao.lida .conteudo-notificacao {
+  margin-left: 20px;
+}
 
-.conteudo-notificacao { display: flex; flex-direction: column; gap: 4px; }
-.conteudo-notificacao strong { font-size: 13px; color: var(--verde-escuro); }
-.conteudo-notificacao p      { font-size: 12px; color: var(--texto-suave); line-height: 1.4; margin: 0; }
-.conteudo-notificacao .tempo { font-size: 11px; color: #a0a0a0; }
+.conteudo-notificacao {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
 
-.ver-todas { justify-content: center; font-weight: 600; color: var(--verde-medio); }
+.conteudo-notificacao strong {
+  font-size: 13px;
+  color: var(--verde-escuro);
+}
+
+.conteudo-notificacao p {
+  font-size: 12px;
+  color: var(--texto-suave);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.conteudo-notificacao .tempo {
+  font-size: 11px;
+  color: #a0a0a0;
+}
+
+.ver-todas {
+  justify-content: center;
+  font-weight: 600;
+  color: var(--verde-medio);
+}
 
 /* ── RESPONSIVO ── */
 @media (max-width: 992px) {
-  .links-navegacao { display: none; }
-  .botao-hamburguer { display: flex; }
-  .botao-avatar { display: none; }
+  .links-navegacao {
+    display: none;
+  }
+
+  .botao-hamburguer {
+    display: flex;
+  }
+
+  .botao-avatar {
+    display: none;
+  }
+
   .acoes-navbar {
-    margin-left: auto; 
+    margin-left: auto;
   }
 }
 
 
 @media (max-width: 768px) {
-  .dropdown-menu { max-width: calc(100vw - 20px); }
-  .menu-notificacoes { width: 300px; right: -45px; }
+  .dropdown-menu {
+    max-width: calc(100vw - 20px);
+  }
+
+  .menu-notificacoes {
+    width: 300px;
+    right: -45px;
+  }
 }
 
 /* Forçar os ícones da navbar a ficarem lado a lado em qualquer ecrã */
 .acoes-navbar {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center;
-    gap: 15px; /* Espaçamento entre o sininho e o menu hambúrguer */
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
+  gap: 15px;
+  /* Espaçamento entre o sininho e o menu hambúrguer */
 }
 
 /* Garantir que os contentores dos botões não ocupem a linha toda */
 .acoes-navbar .dropdown-container {
-    display: block;
-    width: auto;
-    margin: 0;
+  display: block;
+  width: auto;
+  margin: 0;
 }

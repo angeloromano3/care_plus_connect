@@ -8,11 +8,10 @@
 }
 
 body {
-    font-family: var(--bs-font-sans-serif);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background: var(--fundo-pagina);
     color: var(--texto-principal);
     min-height: 100vh;
-    overflow-x: hidden;
 }
 
 /* =========== CONTEUDO PRINCIPAL =============== */
