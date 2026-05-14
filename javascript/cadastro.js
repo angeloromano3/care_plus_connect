@@ -1,41 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-    // 1. Lógica dos Menus Dropdown (Navbar)
-
-    const btnHamburguer = document.getElementById('btn-hamburguer');
-    const menuHamburguer = document.getElementById('menu-hamburguer');
-
-    const btnNotificacao = document.getElementById('btn-notificacao');
-    const menuNotificacoes = document.getElementById('menu-notificacoes');
-
-    // Abre/fecha o menu hambúrguer e esconde as notificações
-    if (btnHamburguer && menuHamburguer) {
-        btnHamburguer.addEventListener('click', (evento) => {
-            evento.stopPropagation();
-            menuHamburguer.classList.toggle('mostrar');
-            if (menuNotificacoes) menuNotificacoes.classList.remove('mostrar');
-        });
-    }
-
-    // Abre/fecha o menu de notificações e esconde o hambúrguer
-    if (btnNotificacao && menuNotificacoes) {
-        btnNotificacao.addEventListener('click', (evento) => {
-            evento.stopPropagation();
-            menuNotificacoes.classList.toggle('mostrar');
-            if (menuHamburguer) menuHamburguer.classList.remove('mostrar');
-        });
-    }
-
-    // Fecha qualquer menu aberto ao clicar na tela
-    document.addEventListener('click', (evento) => {
-        if (menuHamburguer && !menuHamburguer.contains(evento.target) && !btnHamburguer.contains(evento.target)) {
-            menuHamburguer.classList.remove('mostrar');
-        }
-        if (menuNotificacoes && !menuNotificacoes.contains(evento.target) && !btnNotificacao.contains(evento.target)) {
-            menuNotificacoes.classList.remove('mostrar');
-        }
-    });
-
     // 2. Lógica do Formulário e CEP
     const cepInput = document.getElementById('cep');
     const form = document.getElementById('formCadastro');
