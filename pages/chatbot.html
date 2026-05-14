@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistente Virtual</title>
+
+    <!-- Bootstrap CSS via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
+    <!-- Variáveis globais de cor — deve vir antes dos outros CSS -->
+    <link rel="stylesheet" href="../css/variaveis.css" />
+
+    <!-- CSS do chatbot -->
+    <link rel="stylesheet" href="../css/chatbot.css" />
+
+    <!-- JavaScript do chatbot -->
+    <script defer src="../javascript/chatbot.js"></script>
+
+    <!-- Estilos compartilhados da navbar -->
+    <link rel="stylesheet" href="../css/navbar.css" />
+
+    <!-- JavaScript da navbar -->
+    <script src="../javascript/navbar.js" defer></script>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+
+    <main class="conteudo-principal">
+
+        <div class="container">
+            <div class="opcoes">
+                <h3>Olá! Eu sou o <strong>Beni</strong></h3>
+                <p>Como posso ajudar você hoje?</p>
+
+                <div class="container-beni">
+                    <div>
+                        <img class="img-beni" src="../assets/imagens/beni.png" alt="Beni, o assistente virtual">
+                    </div>
+                    <div class="balao-beni">
+                        <p>
+                            Estou aqui para<br>
+                            <span>facilitar o seu dia</span><br>
+                            a dia. É só perguntar!
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="perguntas-frequentes">
+                    <div class="txt-faq">
+                        <h4> <i class="bi bi-person-raised-hand icone-pergunta"></i> Perguntas Frequentes</h4>
+                        <p>Encontre respostas rápidas para perguntas comuns.</p>
+                    </div>
+
+                    <ul>
+                        <li>Como faço para agendar uma consulta?</li>
+                        <li>Quais são os horários de funcionamento?</li>
+                        <li>Como posso entrar em contato com o suporte?</li>
+                        <li>Especialidades diosponíveis</li>
+                        <li>Documentos necessários</li>
+                        <li>Care Points como funciona?</li>
+                    </ul>
+                </div>
+            </div> <!-- Fim das opções -->
+
+            <div class="chat-container">
+
+                <div class="creative-content">
+                    <img class="img-beni-chat" src="../assets/imagens/beni.png" alt="Beni, o assistente virtual">
+                    <h3>Olá! Eu sou o Beni</h3>
+                    <p>Seu assistente virtual da CarePlus Connect.</p>
+                </div>
+
+
+                <div class="cards-container">
+                    <div class="card">
+                        <i class="bi bi-chat-dots-fill"></i>
+                        <h4>Respostas rápidas</h4>
+                        <p>Tire dúvidas e obtenha informações na hora.</p>
+                    </div>
+
+
+                    <div class="card">
+                        <i class="bi bi-shield-lock-fill"></i>
+                        <h4>Informações seguras</h4>
+                        <p>Protegemos suas informações com as melhores práticas de segurança.</p>
+                    </div>
+
+
+                    <div class="card">
+                        <i class="bi bi-heart-fill"></i>
+                        <h4>Sempre com você</h4>
+                        <p>Estamos aqui para te apoiar em qualquer momento.</p>
+                    </div>
+                </div> <!-- fim do container de cards -->
+
+                <div class="messages-container">
+
+                    <!-- <div class="message message-beni">
+                        <div class="message-header">
+                            <i class="bi bi-robot"></i>
+                            <span class="message-autor">Beni</span>
+                        </div>
+                        <div class="message-content">
+                            <p>Como posso ajudar?</p>
+                        </div>
+                        <span class="message-time">
+                            14:04 - 12/05/2026
+                        </span>
+                    </div> -->
+
+                    <!-- <div class="message message-usuario">
+                        <div class="message-header">
+                            <i class="bi bi-person-circle"></i>
+                            <span class="message-autor">Você</span>
+                        </div>
+                        <div class="message-content">
+                            <p>Olá, tenho uma dúvida.</p>
+                        </div>
+                        <span class="message-time">
+                            14:05 - 12/05/2026
+                        </span>
+                    </div> -->
+
+                </div> <!-- fim do container de mensagens -->
+
+                <div class="barra-chat">
+                    <form class="formulario-chat" action="#" method="post">
+                        <input type="text" placeholder="Digite sua mensagem..." aria-label="Digite sua mensagem">
+                        <button type="submit"><i class="bi bi-send"></i></button>
+                    </form>
+                </div>
+
+            </div> <!-- fim do chat container -->
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
