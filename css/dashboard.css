@@ -239,7 +239,8 @@ body {
   border: 2px solid transparent;
 }
 .bolinha-tier.conquistado { 
-  background: linear-gradient(135deg, var(--bronze-claro), var(--bronze-escuro)); 
+  background: linear-gradient(135deg, var(--bronze-claro), var(--bronze-escuro));
+  border-color: var(--bronze-escuro);
 }
 
 .bolinha-tier.atual {
