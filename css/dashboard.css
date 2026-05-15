@@ -198,7 +198,8 @@ body {
 }
 .badge-tier.prata .icone-tier {
   background: linear-gradient(135deg, var(--prata-claro), var(--prata-escuro));
-  box-shadow: 0 4px 12px rgba(192,192,192,.3);
+  box-shadow: 0 0 0 3px rgba(26,122,122,.15);
+  border: 2px solid var(--verde-escuro);
 }
 .badge-tier.ouro .icone-tier {
   background: linear-gradient(135deg, var(--ouro-claro), var(--ouro-escuro));
@@ -242,11 +243,16 @@ body {
 }
 
 .bolinha-tier.atual {
-   background: linear-gradient(135deg, var(--ouro-claro), var(--ouro-escuro));
-   border-color: var(--verde-escuro);
-   box-shadow: 0 0 0 3px rgba(26,122,122,.15);
+  background: linear-gradient(135deg, var(--prata-claro), var(--prata-escuro));
+  border-color: var(--verde-escuro);
+  box-shadow: 0 0 0 3px rgba(26,122,122,.15);
 }
-.bolinha-tier.proximo     { background: #f0f0f0; border-color: var(--borda); }
+
+.bolinha-tier.proximo { 
+  background: linear-gradient(135deg, var(--ouro-claro), var(--ouro-escuro));
+  border-color: var(--ouro-escuro);
+  filter: grayscale(40%) brightness(1.1);
+}
 
 .label-tier {
   font-size: .65rem;
@@ -877,5 +883,18 @@ body {
     max-width: 360px;
     width: 100%;
     margin: 0 auto;
+  }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  .area-cards-acao {
+    grid-template-columns: 1fr;
+  }
+  .coluna-direita {
+    grid-template-columns: 1fr;
+  }
+  .titulo-pagina {
+    font-size: 1.3rem;
   }
 }
