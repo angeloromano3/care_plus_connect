@@ -4,7 +4,7 @@
    Importar em todas as páginas que usam a navbar
    ============================================ */
 
-/* ── CONTEÚDO INTERNO DA NAVBAR ── */
+/* ── BARRA DE NAVEGAÇÃO ── */
 .barra-navegacao {
   background: #fff;
   border-bottom: 1px solid var(--borda);
@@ -16,6 +16,7 @@
   box-shadow: 0 1px 8px rgba(26, 122, 122, .07);
 }
 
+/* ── CONTEÚDO INTERNO DA NAVBAR ── */
 .navbar-conteudo {
   max-width: 1200px;
   margin: 0 auto;
@@ -36,19 +37,9 @@
   letter-spacing: -.3px;
   flex-shrink: 0;
 }
-
-.logo .care {
-  color: var(--verde-escuro);
-}
-
-.logo .plus {
-  color: var(--verde-acento);
-}
-
-.logo .connect {
-  color: var(--verde-medio);
-  font-style: italic;
-}
+.logo .care    { color: var(--verde-escuro); }
+.logo .plus    { color: var(--verde-acento); }
+.logo .connect { color: var(--verde-medio); font-style: italic; }
 
 /* ── LINKS DE NAVEGAÇÃO ── */
 .links-navegacao {
@@ -59,7 +50,6 @@
   padding: 0;
   margin-bottom: 0;
 }
-
 .links-navegacao a {
   text-decoration: none;
   color: var(--texto-suave);
@@ -69,14 +59,25 @@
   border-radius: 8px;
   transition: background .2s, color .2s;
 }
-
 .links-navegacao a:hover,
 .links-navegacao a.ativo {
   background: rgba(30, 158, 158, .1);
   color: var(--verde-escuro);
 }
 
-
+/* ── AÇÕES DA NAVBAR ── */
+.acoes-navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  flex-shrink: 0;
+}
+.acoes-navbar .dropdown-container {
+  display: block;
+  width: auto;
+  margin: 0;
+}
 
 /* ── BOTÃO DE NOTIFICAÇÕES ── */
 .botao-notificacao {
@@ -92,15 +93,8 @@
   transition: background .2s;
   position: relative;
 }
-
-.botao-notificacao:hover {
-  background: rgba(30, 158, 158, .1);
-}
-
-.botao-notificacao i {
-  font-size: 1.1rem;
-  color: var(--texto-suave);
-}
+.botao-notificacao:hover { background: rgba(30, 158, 158, .1); }
+.botao-notificacao i { font-size: 1.1rem; color: var(--texto-suave); }
 
 /* Bolinha vermelha de notificação não lida */
 .ponto-notificacao {
@@ -114,67 +108,25 @@
   border: 2px solid #fff;
 }
 
-/* =========================================
-   CORREÇÃO DO MENU INVISÍVEL COBRINDO A TELA
-========================================= */
-.dropdown-menu {
-  position: absolute;
-  top: calc(100% + 10px);
-  right: 0;
-
-  background-color: var(--fundo-card);
-  min-width: 220px;
-
-  border-radius: 14px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-
+/* ── BOTÃO AVATAR — visível só no desktop ── */
+.botao-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--verde-escuro);
+  border: none;
+  cursor: pointer;
   display: flex;
-  flex-direction: column;
-
-  padding: 8px 0;
-  border: 1px solid var(--borda);
-
-  z-index: 9999;
-
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-
-  transform: translateY(-8px);
-  transition:
-    opacity .22s ease,
-    transform .22s ease,
-    visibility .22s ease;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s;
 }
+.botao-avatar:hover { background: var(--verde-medio); }
+.botao-avatar i { font-size: 1rem; color: #fff; }
 
-.dropdown-menu.mostrar {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-
-.dropdown-hamburguer {
-  position: relative;
-}
-
-#menu-hamburguer {
-  right: 0;
-  left: auto;
-}
-
-/* Devolve a permissão de clique apenas quando o menu estiver aberto/visível. */
-/* .dropdown-menu.mostrar,
-.dropdown-menu.active,
-.dropdown-menu.ativo,
-.dropdown-container:hover .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-} */
-
-/* ── BOTÃO HAMBÚRGUER ── */
+/* ── BOTÃO HAMBÚRGUER — escondido no desktop ── */
 .botao-hamburguer {
+  display: none;
   border: none;
   background: none;
   cursor: pointer;
@@ -182,108 +134,73 @@
   width: 38px;
   height: 38px;
   align-items: center;
-  visibility: visible;
   justify-content: center;
   transition: background .2s;
 }
-
-.botao-hamburguer:hover {
-  background: rgba(30, 158, 158, .1);
-}
-
-.botao-hamburguer i {
-  font-size: 1.4rem;
-  color: var(--texto-suave);
-}
+.botao-hamburguer:hover { background: rgba(30, 158, 158, .1); }
+.botao-hamburguer i { font-size: 1.4rem; color: var(--texto-suave); }
 
 /* ── MENUS DROPDOWN ── */
 .dropdown-container {
-  position: relative !important;
+  position: relative;
   display: inline-block;
 }
+.dropdown-hamburguer { position: relative; }
+#menu-hamburguer { right: 0; left: auto; }
 
 .dropdown-menu {
   position: absolute;
-  top: calc(100% + 15px);
+  top: calc(100% + 10px);
   right: 0;
   background-color: var(--fundo-card);
   min-width: 220px;
-  border-radius: 10px;
+  border-radius: 14px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  opacity: 0;
-  visibility: visible;
-  transform: translateY(-10px);
-  transition: all 0.3s ease;
-  z-index: 1000;
+  border: 1px solid var(--borda);
   display: flex;
   flex-direction: column;
-  padding: 8px 0 !important;
-  margin: 6px 0 !important;
-  border: 0;
-  border-top: 1px solid #eaeaea;
+  padding: 8px 0;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity .22s ease, transform .22s ease, visibility .22s ease;
 }
-
 .dropdown-menu.mostrar {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
   transform: translateY(0);
 }
 
 .dropdown-header {
-  padding: 16px 20px;
+  padding: 12px 20px 8px 20px;
   display: flex;
   flex-direction: column;
   gap: 4px;
-  padding: 12px 20px 8px 20px !important;
 }
+.dropdown-header strong { color: var(--verde-escuro); font-size: 15px; }
+.dropdown-header span   { color: var(--texto-suave);  font-size: 13px; }
 
-.dropdown-header strong {
-  color: var(--verde-escuro);
-  font-size: 15px;
-}
-
-.dropdown-header span {
-  color: var(--texto-suave);
-  font-size: 13px;
-}
-
-.dropdown-menu hr {
-  border: 0;
-  border-top: 1px solid var(--borda);
-  margin: 0;
-}
+.dropdown-menu hr { border: 0; border-top: 1px solid var(--borda); margin: 0; }
 
 .dropdown-item {
+  padding: 8px 20px;
   text-decoration: none;
-  color: var(--texto-principal);
-  font-size: 14px;
+  color: #333;
+  font-size: 15px;
   display: flex;
   align-items: center;
   gap: 12px;
   transition: background 0.2s;
-  padding: 3px 20px !important;
-  color: #333;
-  text-decoration: none;
-  font-size: 15px;
 }
-
-.dropdown-item:hover {
-  background-color: rgba(27, 176, 173, 0.12);
-  color: var(--verde-medio);
-}
-
-.dropdown-item.sair {
-  color: var(--vermelho-acento);
-}
-
-.dropdown-item.sair:hover {
-  background-color: #fff0f0;
-}
+.dropdown-item:hover { background-color: rgba(27, 176, 173, 0.12); color: var(--verde-medio); }
+.dropdown-item.sair  { color: var(--vermelho-acento); }
+.dropdown-item.sair:hover { background-color: #fff0f0; }
 
 /* ── MENU DE NOTIFICAÇÕES ── */
-.menu-notificacoes {
-  width: 320px;
-}
+.menu-notificacoes { width: 320px; }
 
 .header-notificacoes {
   flex-direction: row;
@@ -291,20 +208,10 @@
   align-items: center;
 }
 
-.marcar-lidas {
-  font-size: 11px !important;
-  color: var(--verde-medio) !important;
-  cursor: pointer;
-}
+.marcar-lidas { font-size: 11px !important; color: var(--verde-medio) !important; cursor: pointer; }
+.marcar-lidas:hover { text-decoration: underline; }
 
-.marcar-lidas:hover {
-  text-decoration: underline;
-}
-
-.lista-notificacoes {
-  max-height: 320px;
-  overflow-y: auto;
-}
+.lista-notificacoes { max-height: 320px; overflow-y: auto; }
 
 .item-notificacao {
   display: flex;
@@ -315,115 +222,38 @@
   border-bottom: 1px solid var(--borda);
   transition: background 0.2s;
 }
-
-.item-notificacao:last-child {
-  border-bottom: none;
-}
-
-.item-notificacao.nao-lida {
-  background-color: rgba(27, 176, 173, 0.12);
-}
-
-.item-notificacao.lida {
-  background-color: #ffffff;
-}
-
-.item-notificacao:hover {
-  background-color: #f0f6f4;
-}
+.item-notificacao:last-child  { border-bottom: none; }
+.item-notificacao.nao-lida    { background-color: rgba(27, 176, 173, 0.12); }
+.item-notificacao.lida        { background-color: #ffffff; }
+.item-notificacao:hover       { background-color: #f0f6f4; }
 
 .indicador-nao-lida {
-  width: 8px;
-  height: 8px;
+  width: 8px; height: 8px;
   background-color: var(--vermelho-acento);
   border-radius: 50%;
   margin-top: 5px;
   margin-right: 12px;
   flex-shrink: 0;
 }
+.item-notificacao.lida .conteudo-notificacao { margin-left: 20px; }
 
-.item-notificacao.lida .conteudo-notificacao {
-  margin-left: 20px;
-}
+.conteudo-notificacao { display: flex; flex-direction: column; gap: 4px; }
+.conteudo-notificacao strong { font-size: 13px; color: var(--verde-escuro); }
+.conteudo-notificacao p      { font-size: 12px; color: var(--texto-suave); line-height: 1.4; margin: 0; }
+.conteudo-notificacao .tempo { font-size: 11px; color: #a0a0a0; }
 
-.conteudo-notificacao {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.conteudo-notificacao strong {
-  font-size: 13px;
-  color: var(--verde-escuro);
-}
-
-.conteudo-notificacao p {
-  font-size: 12px;
-  color: var(--texto-suave);
-  line-height: 1.4;
-  margin: 0;
-}
-
-.conteudo-notificacao .tempo {
-  font-size: 11px;
-  color: #a0a0a0;
-}
-
-.ver-todas {
-  justify-content: center;
-  font-weight: 600;
-  color: var(--verde-medio);
-}
+.ver-todas { justify-content: center; font-weight: 600; color: var(--verde-medio); }
 
 /* ── RESPONSIVO ── */
 @media (max-width: 992px) {
-  .links-navegacao {
-    display: none;
-  }
-
-  .botao-hamburguer {
-    display: flex;
-  }
-
-  .botao-avatar {
-    display: none;
-  }
-
-  .acoes-navbar {
-    margin-left: auto;
-  }
+  .links-navegacao  { display: none; }
+  .botao-hamburguer { display: flex; }
+  .botao-avatar     { display: none; }
+  .acoes-navbar     { margin-left: auto; }
 }
-
 
 @media (max-width: 768px) {
-  .dropdown-menu {
-    max-width: calc(100vw - 20px);
-  }
-
-  .menu-notificacoes {
-    width: 300px;
-    right: -45px;
-  }
-
-  #menu-hamburguer {
-    width: 260px;
-    max-width: calc(100vw - 20px);
-    right: 0;
-  }
-}
-
-/* Forçar os ícones da navbar a ficarem lado a lado em qualquer ecrã */
-.acoes-navbar {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center;
-  gap: 15px;
-  /* Espaçamento entre o sininho e o menu hambúrguer */
-}
-
-/* Garantir que os contentores dos botões não ocupem a linha toda */
-.acoes-navbar .dropdown-container {
-  display: block;
-  width: auto;
-  margin: 0;
+  .dropdown-menu    { max-width: calc(100vw - 20px); }
+  .menu-notificacoes { width: 300px; right: -45px; }
+  #menu-hamburguer  { width: 260px; max-width: calc(100vw - 20px); right: 0; }
 }

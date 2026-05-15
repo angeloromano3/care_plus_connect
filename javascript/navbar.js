@@ -76,11 +76,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div> <!--Fim dropdown de notificacoes-->
                 </div>
 
-                <!-- Menu Hamburguer-->
-                <div class="dropdown-container dropdown-hamburguer">
-                    <button class="botao-hamburguer" id="btn-hamburguer-mobile" aria-label="Menu principal">
-                        <i class="bi bi-list"></i>
-                    </button>
+                            <!-- Avatar/Hamburguer no mesmo dropdown -->
+            <div class="dropdown-container">
+                <button class="botao-avatar" id="btn-hamburguer" aria-label="Perfil do usuário">
+                    <i class="bi bi-person"></i>
+                </button>
+                <button class="botao-hamburguer" id="btn-hamburguer-mobile" aria-label="Menu principal">
+                    <i class="bi bi-list"></i>
+                </button>
 
                     <!-- Dropdown hamburguer -->
                     <div class="dropdown-menu" id="menu-hamburguer">
@@ -100,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <a href="./historico.html" class="dropdown-item">
                             <i class="bi bi-clock-history"></i> Histórico
                         </a>
-                        <a href="./h" class="dropdown-item">
+                        <a href="chatbot.html" class="dropdown-item">
                             <i class="bi bi-robot"></i> Assist. Virtual
                         </a>
                         <div class="dropdown-divider"></div>
@@ -137,11 +140,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 3. Sua Lógica de Interatividade (Dropdowns e Cliques)
+    const btnHamburguer = document.getElementById('btn-hamburguer');
     const btnHamburguerMobile = document.getElementById('btn-hamburguer-mobile');
     const menuHamburguer = document.getElementById('menu-hamburguer');
     const btnNotificacao = document.getElementById('btn-notificacao');
     const menuNotificacoes = document.getElementById('menu-notificacoes');
 
+    if (btnHamburguer && menuHamburguer) {
+        btnHamburguer.addEventListener('click', (evento) => {
+            evento.stopPropagation();
+            menuHamburguer.classList.toggle('mostrar');
+            if (menuNotificacoes) menuNotificacoes.classList.remove('mostrar');
+        });
+    }
 
     if (btnHamburguerMobile && menuHamburguer) {
         btnHamburguerMobile.addEventListener('click', (evento) => {
@@ -171,5 +182,6 @@ document.addEventListener('DOMContentLoaded', () => {
             !btnNotificacao.contains(evento.target)) {
             menuNotificacoes.classList.remove('mostrar');
         }
-    });
+});
+
 });
