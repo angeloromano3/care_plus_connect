@@ -1,6 +1,6 @@
 // ============================================
 // CAREPLUS CONNECT — navbar.js
-// Criação e lógica compartilhada da navbar (CORRIGIDO)
+// Criação e lógica compartilhada da navbar
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Se a página atual não tiver o container da navbar, interrompe a execução
     if (!navbarPlaceholder) return;
 
-    // 1. Injeta o HTML da Barra de Navegação (ESTRUTURA CORRETA COM DROP-CONTAINERS)
+    // 1. Injeta o HTML da Barra de Navegação
     navbarPlaceholder.innerHTML = `
     <nav class="barra-navegacao">
         <div class="navbar-conteudo">
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <ul class="links-navegacao">
                 <li><a href="dashboard.html" id="nav-inicio">Início</a></li>
                 <li><a href="#" id="nav-consultas">Consultas</a></li>
-                <li><a href="historico.html" id="nav-historico">Histórico</a></li>
+                <li><a href="./historico.html" id="nav-historico">Histórico</a></li>
                 <li><a href="chatbot.html" id="nav-assistente">Assistente Virtual</a></li>
             </ul> <!--Fim Links Navegação -->
 
@@ -63,13 +63,21 @@ document.addEventListener('DOMContentLoaded', () => {
                                     <span class="tempo">Há 1 hora</span>
                                 </div>
                             </a>
+                            <a href="#" class="item-notificacao lida">
+                                <div class="conteudo-notificacao">
+                                    <strong>Sua consulta está pendente</strong>
+                                    <p>A consulta ainda não foi confirmada.</p>
+                                    <span class="tempo">Ontem</span>
+                                </div>
+                            </a>
                         </div>
                         <hr>
                         <a href="#" class="dropdown-item ver-todas">Ver todas as notificações</a>
                     </div> <!--Fim dropdown de notificacoes-->
                 </div>
 
-                
+                <!-- Menu Hamburguer-->
+                <div class="dropdown-container dropdown-hamburguer">
                     <button class="botao-hamburguer" id="btn-hamburguer-mobile" aria-label="Menu principal">
                         <i class="bi bi-list"></i>
                     </button>
@@ -78,27 +86,46 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="dropdown-menu" id="menu-hamburguer">
                         <div class="dropdown-header">
                             <strong>Olá, Usuário</strong>
-                            <span style="font-size: 13px; color: #777;">usuario@careplus.com</span>
+                            <span>usuario@careplus.com</span>
                         </div>
+
                         <div class="dropdown-divider"></div>
-                        <a href="dashboard.html" class="dropdown-item"><i class="bi bi-house"></i> Início</a>
-                        <a href="#" class="dropdown-item"><i class="bi bi-calendar-event"></i> Consultas</a>
-                        <a href="./historico.html" class="dropdown-item"><i class="bi bi-clock-history"></i> Histórico</a>
-                        <a href="./h" class="dropdown-item"><i class="bi bi-robot"></i> Assist. Virtual</a>
+
+                        <a href="dashboard.html" class="dropdown-item">
+                            <i class="bi bi-house"></i> Início
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <i class="bi bi-calendar-event"></i> Consultas
+                        </a>
+                        <a href="./historico.html" class="dropdown-item">
+                            <i class="bi bi-clock-history"></i> Histórico
+                        </a>
+                        <a href="./h" class="dropdown-item">
+                            <i class="bi bi-robot"></i> Assist. Virtual
+                        </a>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item"><i class="bi bi-person-badge"></i> Meu Perfil</a>
-                        <a href="#" class="dropdown-item"><i class="bi bi-gear"></i> Configurações</a>
+                        <a href="#" class="dropdown-item">
+                            <i class="bi bi-person-badge"></i> Meu Perfil
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <i class="bi bi-gear"></i> Configurações
+                        </a>
+
                         <div class="dropdown-divider"></div>
-                        <a href="../index.html" class="dropdown-item sair"><i class="bi bi-box-arrow-right"></i> Sair</a>
-                    </div>
-                </div>
+                        
+                        <a href="../index.html" class="dropdown-item sair">
+                            <i class="bi bi-box-arrow-right"></i> Sair
+                        </a>
+                    </div> <!-- Fim Dropdown hamburguer -->
+
+                </div> <!-- Fim Menu Hamburguer-->
 
             </div> <!-- Fim Acoes container -->
         </div>
     </nav>
     `;
 
-    // 2. Lógica Inteligente para Identificar a Página Ativa (Mantida)
+    // 2. Lógica Inteligente para Identificar a Página Ativa
     const paginaAtual = window.location.pathname;
 
     if (paginaAtual.includes('dashboard.html')) {
@@ -110,43 +137,39 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 3. Sua Lógica de Interatividade (Dropdowns e Cliques)
-    const btnHamburguer = document.getElementById('btn-hamburguer');
     const btnHamburguerMobile = document.getElementById('btn-hamburguer-mobile');
     const menuHamburguer = document.getElementById('menu-hamburguer');
     const btnNotificacao = document.getElementById('btn-notificacao');
     const menuNotificacoes = document.getElementById('menu-notificacoes');
 
-    if (btnHamburguer && menuHamburguer) {
-        btnHamburguer.addEventListener('click', (evento) => {
+
+    if (btnHamburguerMobile && menuHamburguer) {
+        btnHamburguerMobile.addEventListener('click', (evento) => {
             evento.stopPropagation();
             menuHamburguer.classList.toggle('mostrar');
             if (menuNotificacoes) menuNotificacoes.classList.remove('mostrar');
         });
     }
 
-    // Abre/Fecha Notificações
     if (btnNotificacao && menuNotificacoes) {
         btnNotificacao.addEventListener('click', (evento) => {
             evento.stopPropagation();
-            toggleMenu(menuNotificacoes, menuHamburguer);
+            menuNotificacoes.classList.toggle('mostrar');
+            if (menuHamburguer) menuHamburguer.classList.remove('mostrar');
         });
     }
 
-    // Fecha menus ao clicar fora deles
     document.addEventListener('click', (evento) => {
-        // Fecha Hambúrguer se clicar fora
-        if (menuHamburguer && menuHamburguer.classList.contains('mostrar')) {
-            // Se o clique NÃO foi dentro do menu E NÃO foi no botão que abre o menu
-            if (!menuHamburguer.contains(evento.target) && !btnHamburguer.contains(evento.target)) {
-                menuHamburguer.classList.remove('mostrar');
-            }
+        if (menuHamburguer &&
+            (!btnHamburguer || !btnHamburguer.contains(evento.target)) &&
+            (!btnHamburguerMobile || !btnHamburguerMobile.contains(evento.target)) &&
+            !menuHamburguer.contains(evento.target)) {
+            menuHamburguer.classList.remove('mostrar');
         }
-        
-        // Fecha Notificações se clicar fora
-        if (menuNotificacoes && menuNotificacoes.classList.contains('mostrar')) {
-            if (!menuNotificacoes.contains(evento.target) && !btnNotificacao.contains(evento.target)) {
-                menuNotificacoes.classList.remove('mostrar');
-            }
+        if (menuNotificacoes && btnNotificacao &&
+            !menuNotificacoes.contains(evento.target) &&
+            !btnNotificacao.contains(evento.target)) {
+            menuNotificacoes.classList.remove('mostrar');
         }
     });
 });
