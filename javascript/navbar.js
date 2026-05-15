@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <a href="dashboard.html" class="dropdown-item"><i class="bi bi-house"></i> Início</a>
                         <a href="#" class="dropdown-item"><i class="bi bi-calendar-event"></i> Consultas</a>
                         <a href="./historico.html" class="dropdown-item"><i class="bi bi-clock-history"></i> Histórico</a>
-                        <a href="./chatbot.html" class="dropdown-item"><i class="bi bi-robot"></i> Assist. Virtual</a>
+                        <a href="./h" class="dropdown-item"><i class="bi bi-robot"></i> Assist. Virtual</a>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item"><i class="bi bi-person-badge"></i> Meu Perfil</a>
                         <a href="#" class="dropdown-item"><i class="bi bi-gear"></i> Configurações</a>
