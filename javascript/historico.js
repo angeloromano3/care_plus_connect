@@ -112,5 +112,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    renderizarConsultas();
+    // renderizarConsultas();
+
+    // ── LOGICA DE INICIALIZAÇÃO COM FILTRO DA URL ──
+    
+    // Captura os parâmetros contidos na URL (ex: ?status=Realizada)
+    const urlParams = new URLSearchParams(window.location.search);
+    const statusParam = urlParams.get('status'); 
+
+    // Se existir o parâmetro e ele for válido, aplica o filtro inicial
+    if (statusParam) {
+        // Encontra o botão do filtro correspondente usando o data-status
+        const botaoCorrespondente = document.querySelector(`.card-filtro[data-status="${statusParam}"]`);
+        
+        if (botaoCorrespondente) {
+            // Remove a classe ativa do botão padrão ("Todas")
+            botoesFiltro.forEach(b => b.classList.remove('ativo'));
+            // Adiciona a classe ativa no botão correto
+            botaoCorrespondente.classList.add('ativo');
+            
+            // Renderiza exibindo apenas o status vindo da URL
+            renderizarConsultas(statusParam);
+        } else {
+            // Caso alguém digite um status inválido na URL, carrega o padrão
+            renderizarConsultas();
+        }
+    } else {
+        // Se não houver parâmetro nenhum (clique normal na navbar), carrega tudo
+        renderizarConsultas();
+    }
+
 });
