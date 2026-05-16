@@ -498,7 +498,7 @@ body {
 .botao-slide:hover { opacity: .85; }
 
 .slide-pendentes .botao-slide { background: rgba(246,195,67,.2);  color: #9a7000; }
-.slide-dica      .botao-slide { background: rgba(91,191,142,.2);  color: #2e7d52; }
+/*.slide-dica      .botao-slide { background: rgba(91,191,142,.2);  color: #2e7d52; }  estilo do botão saiba mais removido */ 
 .slide-lembrete  .botao-slide { background: rgba(30,158,158,.15); color: var(--verde-escuro); }
 .slide-pontos    .botao-slide { background: rgba(255,215,0,.2);   color: #cc8800; }
 
