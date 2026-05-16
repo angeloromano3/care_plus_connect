@@ -443,42 +443,6 @@ body {
 .detalhe-clima span:first-child { font-size: .7rem; opacity: .75; }
 .detalhe-clima span:last-child  { font-size: .82rem; font-weight: 600; }
 
-/* Botão conectar dispositivo dentro do card de clima */
-.botao-conectar-clima {
-  width: 100%;
-  margin-top: .9rem;
-  padding: .5rem;
-  border-radius: 8px;
-  border: 1px solid rgba(255,255,255,.5);
-  background: rgba(255,255,255,.15);
-  color: #fff;
-  font-size: .82rem;
-  cursor: pointer;
-  transition: background .2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: .4rem;
-}
-.botao-conectar-clima:hover {
-  background: rgba(255,255,255,.25);
-}
-
-/* Estado bloqueado do card de clima */
-.clima-bloqueado .topo-clima,
-.clima-bloqueado .temperatura,
-.clima-bloqueado .descricao-clima,
-.clima-bloqueado .detalhes-clima {
-  filter: blur(5px);
-  opacity: .4;
-  pointer-events: none;
-}
-
-/* Botão conectar fica visível e clicável */
-.clima-bloqueado .botao-conectar-clima {
-  position: relative;
-  z-index: 2;
-}
 
 /* ── CARDS ROTATIVOS ── */
 .area-cards-rotativos {
