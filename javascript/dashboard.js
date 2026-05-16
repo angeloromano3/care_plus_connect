@@ -70,23 +70,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // ── CONECTAR DISPOSITIVO DE CLIMA ──
-  // Remove o blur ao clicar no botão e muda o texto para "Conectado"
-  // estado começa como desconectado
-  let climaConectado = false;
-
-  document.getElementById('btn-conectar-clima').addEventListener('click', function () {
-    climaConectado = !climaConectado; // alterna o estado
-
-    if (climaConectado) {
-      // Conectou
-      document.querySelector('.card-clima').classList.remove('clima-bloqueado');
-      this.innerHTML = '<i class="bi bi-check-circle"></i> Conectado';
-    } else {
-      // Desconectou
-      document.querySelector('.card-clima').classList.add('clima-bloqueado');
-      this.innerHTML = '<i class="bi bi-plug"></i> Conectar dispositivo';
-    }
-  });
-
 });

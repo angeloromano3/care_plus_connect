@@ -290,7 +290,9 @@ body {
 }
 
 /* Barra de progresso até o próximo tier */
-.area-progresso { margin-top: .5rem; }
+.area-progresso {
+  margin-top: .5rem;
+}
 .info-progresso {
   display: flex;
   justify-content: space-between;
@@ -305,10 +307,12 @@ body {
   background: var(--borda);
   border-radius: 999px;
   overflow: hidden;
+  margin-left: 30px;
+  margin-right: 20px;
 }
 .preenchimento-progresso {
   height: 100%;
-  width: 35%;
+  width: 70%;
   background: linear-gradient(90deg, var(--verde-medio), var(--verde-acento));
   border-radius: 999px;
 }
@@ -439,42 +443,6 @@ body {
 .detalhe-clima span:first-child { font-size: .7rem; opacity: .75; }
 .detalhe-clima span:last-child  { font-size: .82rem; font-weight: 600; }
 
-/* Botão conectar dispositivo dentro do card de clima */
-.botao-conectar-clima {
-  width: 100%;
-  margin-top: .9rem;
-  padding: .5rem;
-  border-radius: 8px;
-  border: 1px solid rgba(255,255,255,.5);
-  background: rgba(255,255,255,.15);
-  color: #fff;
-  font-size: .82rem;
-  cursor: pointer;
-  transition: background .2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: .4rem;
-}
-.botao-conectar-clima:hover {
-  background: rgba(255,255,255,.25);
-}
-
-/* Estado bloqueado do card de clima */
-.clima-bloqueado .topo-clima,
-.clima-bloqueado .temperatura,
-.clima-bloqueado .descricao-clima,
-.clima-bloqueado .detalhes-clima {
-  filter: blur(5px);
-  opacity: .4;
-  pointer-events: none;
-}
-
-/* Botão conectar fica visível e clicável */
-.clima-bloqueado .botao-conectar-clima {
-  position: relative;
-  z-index: 2;
-}
 
 /* ── CARDS ROTATIVOS ── */
 .area-cards-rotativos {
@@ -530,7 +498,7 @@ body {
 .botao-slide:hover { opacity: .85; }
 
 .slide-pendentes .botao-slide { background: rgba(246,195,67,.2);  color: #9a7000; }
-.slide-dica      .botao-slide { background: rgba(91,191,142,.2);  color: #2e7d52; }
+/*.slide-dica      .botao-slide { background: rgba(91,191,142,.2);  color: #2e7d52; }  estilo do botão saiba mais removido */ 
 .slide-lembrete  .botao-slide { background: rgba(30,158,158,.15); color: var(--verde-escuro); }
 .slide-pontos    .botao-slide { background: rgba(255,215,0,.2);   color: #cc8800; }
 
@@ -572,8 +540,9 @@ body {
 .card-beni::before {
   content: '';
   position: absolute;
-  bottom: -20px; right: -20px;
-  width: 100px; height: 100px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px; height: 150px;
   border-radius: 50%;
   background: rgba(255,255,255,.06);
 }
@@ -783,25 +752,19 @@ body {
 .icone-preventiva { background: rgba(30,158,158,.1); }
 .icone-preventiva i { color: var(--verde-medio); }
 
-/* Card clicável que leva para a página explicativa dos CarePoints */
-.modal-saiba-mais {
+/* Rodapé informativo das regras do CarePoints */
+.modal-regras {
   display: flex;
-  gap: .9rem;
-  align-items: flex-start;
+  gap: .6rem;
+  align-items: center;
   background: rgba(30,158,158,.06);
   border: 1.5px solid rgba(30,158,158,.2);
   border-radius: 10px;
   padding: 1rem;
   margin-top: 1.25rem;
-  cursor: pointer;
-  transition: background .2s;
-  width: 100%;
-  text-align: left;
 }
-.modal-saiba-mais:hover { background: rgba(30,158,158,.12); }
-.modal-saiba-mais i      { font-size: 1.1rem; color: var(--verde-medio); flex-shrink: 0; margin-top: 2px; }
-.modal-saiba-mais strong { display: block; font-size: .85rem; font-weight: 600; color: var(--verde-escuro); margin-bottom: .25rem; }
-.modal-saiba-mais span   { font-size: .75rem; color: var(--texto-suave); line-height: 1.5; }
+.modal-regras i    { font-size: 1rem; color: var(--verde-medio); flex-shrink: 0; margin-top: 1px; }
+.modal-regras span { font-size: .73rem; color: var(--texto-principal); line-height: 1.6; }
 
 /* ── SLIDE APPS INTEGRADOS (No Card Rotativo) ── */
 .slide-apps .icone-slide { background: rgba(30,158,158,.1); }
@@ -849,53 +812,33 @@ body {
 /* ════════════════════════════════
    RESPONSIVO
 ════════════════════════════════ */
-@media (max-width: 992px) {
-  /* Em tablet: uma coluna só, sidebar vai embaixo */
-  .grade-dashboard {
-    grid-template-columns: 1fr;
-  }
-
-  /* Sidebar vira grid de 2 colunas em tablet */
-  .coluna-direita {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .area-cards-rotativos {
-    overflow: visible;
-  }
-
-  .slide-rotativo {
-    overflow: hidden;
-  }
-
-  /* Esconde links e mostra hambúrguer no tablet */
-  .links-navegacao {
-    display: none;
-  }
-
-  .botao-hamburguer {
-    display: flex;
-  }
-
-  /* Card Beni centralizado */
-  .card-beni {
-    grid-column: 1 / -1;
-    max-width: 360px;
-    width: 100%;
-    margin: 0 auto;
-  }
-}
-
-/* ── MOBILE ── */
 @media (max-width: 768px) {
   .area-cards-acao {
     grid-template-columns: 1fr;
   }
-  .coluna-direita {
+  .grade-dashboard {
     grid-template-columns: 1fr;
+  }
+  .coluna-direita {
+    display: flex;
+    flex-direction: column;
   }
   .titulo-pagina {
     font-size: 1.3rem;
+  }
+  .card-beni {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .area-beni {
+    display: flex;
+    justify-content: center;
+  }
+  .botao-beni {
+    max-width: 280px;
+    margin: 0 auto;
+    display: block;
   }
 }
