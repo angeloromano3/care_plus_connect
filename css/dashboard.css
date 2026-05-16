@@ -751,25 +751,19 @@ body {
 .icone-preventiva { background: rgba(30,158,158,.1); }
 .icone-preventiva i { color: var(--verde-medio); }
 
-/* Card clicável que leva para a página explicativa dos CarePoints */
-.modal-saiba-mais {
+/* Rodapé informativo das regras do CarePoints */
+.modal-regras {
   display: flex;
-  gap: .9rem;
-  align-items: flex-start;
+  gap: .6rem;
+  align-items: center;
   background: rgba(30,158,158,.06);
   border: 1.5px solid rgba(30,158,158,.2);
   border-radius: 10px;
   padding: 1rem;
   margin-top: 1.25rem;
-  cursor: pointer;
-  transition: background .2s;
-  width: 100%;
-  text-align: left;
 }
-.modal-saiba-mais:hover { background: rgba(30,158,158,.12); }
-.modal-saiba-mais i      { font-size: 1.1rem; color: var(--verde-medio); flex-shrink: 0; margin-top: 2px; }
-.modal-saiba-mais strong { display: block; font-size: .85rem; font-weight: 600; color: var(--verde-escuro); margin-bottom: .25rem; }
-.modal-saiba-mais span   { font-size: .75rem; color: var(--texto-suave); line-height: 1.5; }
+.modal-regras i    { font-size: 1rem; color: var(--verde-medio); flex-shrink: 0; margin-top: 1px; }
+.modal-regras span { font-size: .73rem; color: var(--texto-principal); line-height: 1.6; }
 
 /* ── SLIDE APPS INTEGRADOS (No Card Rotativo) ── */
 .slide-apps .icone-slide { background: rgba(30,158,158,.1); }
