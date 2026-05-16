@@ -230,6 +230,16 @@ body {
     color: #475569;
 }
 
+.status-realizada {
+    background-color: #e0f0ff; 
+    color: #0056b3 ; 
+}
+
+.card-filtro[data-status="Realizada"]:hover {
+    background-color: #e0f0ff !important; 
+    border-color: #00407f !important;    
+}
+
 /* MODAL DE DETALHES E BOTÕES GPS*/
 .modal-overlay {
     display: none;

@@ -1,12 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Banco de dados
+       // Banco de dados
     const consultasFake = [
         { id: 1, medico: "Dra. Bianca Benevucci", especialidade: "Cardiologia", crm: "SP-123456", data: "2026-05-15T15:00:00", clinica: "Hospital Sírio Libanês", endereco: "Bela Vista, SP", status: "Agendada" },
         { id: 2, medico: "Dr. Mauro Ribeiro", especialidade: "Pediatria", crm: "SP-654321", data: "2026-03-19T10:30:00", clinica: "Clínica Infantil Care", endereco: "Cerqueira César, SP", status: "Cancelada" },
         { id: 3, medico: "Dr. Carlos Eduardo", especialidade: "Ortopedia", crm: "SP-998877", data: "2026-04-10T14:00:00", clinica: "OrtoCare SP", endereco: "Vila Olímpia, SP", status: "Remarcada" },
         { id: 4, medico: "Dra. Ana Silva", especialidade: "Dermatologia", crm: "SP-112233", data: "2026-02-05T09:00:00", clinica: "Derma Plus", endereco: "Itaim Bibi, SP", status: "Agendada" },
-        { id: 5, medico: "Dr. João Paulo", especialidade: "Oftalmologia", crm: "SP-554433", data: "2026-05-20T16:00:00", clinica: "Visão Total", endereco: "Consolação, SP", status: "Perdida" }
+        { id: 5, medico: "Dr. João Paulo", especialidade: "Oftalmologia", crm: "SP-554433", data: "2026-05-20T16:00:00", clinica: "Visão Total", endereco: "Consolação, SP", status: "Perdida" },
+        { id: 6, medico: "Dr. Fernando Costa", especialidade: "Neurologia", crm: "SP-776655", data: "2026-01-10T11:00:00", clinica: "Neuro Centro", endereco: "Paulista, SP", status: "Realizada" }
     ];
 
     const listaConsultas = document.getElementById('lista-consultas');
@@ -67,8 +68,10 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('count-remarcada').innerText = consultasFake.filter(c => c.status === 'Remarcada').length;
             document.getElementById('count-cancelada').innerText = consultasFake.filter(c => c.status === 'Cancelada').length;
             document.getElementById('count-perdida').innerText = consultasFake.filter(c => c.status === 'Perdida').length;
+            document.getElementById('count-realizada').innerText = consultasFake.filter(c => c.status === 'Realizada').length;
         }
     }
+    
 
     // Modal
     function abrirModalDetalhes(consulta, data, hora) {
