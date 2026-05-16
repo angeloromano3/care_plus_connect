@@ -142,7 +142,7 @@
           <!-- Barra de progresso até o próximo nível -->
           <div class="area-progresso">
             <div class="info-progresso">
-              <span>35 / 100 pts para Prata</span>
+              <span>35 / 100 pts para Ouro</span>
               <span>65 pts restantes</span>
             </div>
             <div class="trilha-progresso">
@@ -171,7 +171,7 @@
               <div class="meta-consulta">
                 <span>
                   <i class="bi bi-calendar"></i>
-                  20 de outubro de 2025
+                  20 de maio de 2026
                 </span>
                 <span>
                   <i class="bi bi-clock"></i>
@@ -191,7 +191,7 @@
               <div class="meta-consulta">
                 <span>
                   <i class="bi bi-calendar"></i>
-                  22 de outubro de 2025
+                  22 de maio de 2026
                 </span>
                 <span>
                   <i class="bi bi-clock"></i>
@@ -211,7 +211,7 @@
               <div class="meta-consulta">
                 <span>
                   <i class="bi bi-calendar"></i>
-                  25 de outubro de 2025
+                  25 de maio de 2026
                 </span>
                 <span>
                   <i class="bi bi-clock"></i>
@@ -236,7 +236,7 @@
         <!-- ── CARD DE CLIMA ──
              Conectado via dispositivo externo do usuário
              Mostra temperatura, condição e detalhes meteorológicos -->
-        <div class="card-clima clima-bloqueado" role="button">
+        <div class="card-clima" role="button" onclick="alert('Em breve integrado a uma API de clima em tempo real!')">
           <div class="topo-clima">
             <span class="cidade-clima">São Paulo</span>
             <span class="emoji-clima">☀️</span>
@@ -270,7 +270,7 @@
             <div class="icone-slide">🔔</div>
             <p class="titulo-slide">Consultas Pendentes</p>
             <p class="descricao-slide">Você tem 1 consulta aguardando confirmação. Verifique seus agendamentos.</p>
-            <button class="botao-slide" onclick="window.location.href='#'">Ver consultas</button>
+            <button class="botao-slide" onclick="alert('Funcionalidade em desenvolvimento')">Ver consultas</button>
           </div>
 
           <!-- Slide 2: Dica de saúde -->
@@ -286,16 +286,16 @@
             <div class="icone-slide">📅</div>
             <p class="titulo-slide">Lembrete</p>
             <p class="descricao-slide">Você não agenda uma consulta há 30 dias. Cuide da sua saúde preventivamente!</p>
-            <button class="botao-slide" onclick="window.location.href='#'">Agendar agora</button>
+            <button class="botao-slide" onclick="alert('Funcionalidade em desenvolvimento')">Agendar agora</button>
           </div>
 
           <!-- Slide 4: CarePoints (Quase lá!) -->
           <div class="slide-rotativo slide-pontos" id="slide-3">
             <div class="icone-slide">⭐</div>
             <p class="titulo-slide">Quase lá!</p>
-            <p class="descricao-slide">Você está a 65 pontos de atingir o nível Prata. Continue comparecendo às
+            <p class="descricao-slide">Você está a 65 pontos de atingir o nível Ouro. Continue comparecendo às
               consultas!</p>
-            <button class="botao-slide" onclick="window.location.href='#'">Ver recompensas</button>
+            <button class="botao-slide" onclick="document.getElementById('btn-abrir-modal').click()">Ver recompensas</button>
           </div>
 
           <!-- Slide 5: Apps integrados
@@ -309,28 +309,28 @@
             <div class="app-item-mini app-maps">
               <i class="bi bi-map"></i>
               <span>Google Maps</span>
-              <button class="botao-app-mini" id="btn-maps">Conectar</button>
+              <button class="botao-app-mini" onclick="alert('Funcionalidade em desenvolvimento')">Conectar</button>
             </div>
 
             <!-- Waze: trânsito em tempo real (uma alternativa do maps) -->
             <div class="app-item-mini app-waze">
               <i class="bi bi-car-front"></i>
               <span>Waze</span>
-              <button class="botao-app-mini" id="btn-waze">Conectar</button>
+              <button class="botao-app-mini" onclick="alert('Funcionalidade em desenvolvimento')">Conectar</button>
             </div>
 
             <!-- Google Calendar: lembretes automáticos de consulta -->
             <div class="app-item-mini app-calendar">
               <i class="bi bi-calendar-check"></i>
               <span>Google Calendar</span>
-              <button class="botao-app-mini" id="btn-calendar">Conectar</button>
+              <button class="botao-app-mini" onclick="alert('Funcionalidade em desenvolvimento')">Conectar</button>
             </div>
 
             <!-- Climatempo: alertas climáticos e remarcação caso não consiga ir a consulta -->
             <div class="app-item-mini app-climatempo">
               <i class="bi bi-cloud-sun"></i>
               <span>Climatempo</span>
-              <button class="botao-app-mini" id="btn-climatempo">Conectar</button>
+              <button class="botao-app-mini" onclick="alert('Funcionalidade em desenvolvimento')">Conectar</button>
             </div>
           </div>
 
@@ -425,7 +425,7 @@
           <!-- Barra de progresso -->
           <div class="area-progresso">
             <div class="info-progresso">
-              <span>35 / 100 pts para Prata</span>
+              <span>35 / 100 pts para Ouro</span>
               <span>65 pts restantes</span>
             </div>
             <div class="trilha-progresso">
