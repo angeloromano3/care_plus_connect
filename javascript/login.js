@@ -36,4 +36,5 @@ document.getElementById('botao-entrar').addEventListener('click', function () {
 
   // Aqui futuramente será feita a chamada à API de autenticação ou fazer direto no Backend
   alert('Login realizado com sucesso! ✓');
+  window.location.href = 'pages/dashboard.html';
 });
