@@ -1,0 +1,134 @@
+.status-notificacao {
+    background: #ecfeff;
+    border: 1px solid #a5f3fc;
+    border-radius: 18px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.status-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #0d9488;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.status-notificacao p {
+    margin: 0;
+    color: #64748b;
+}
+
+.grid-notificacoes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.card-config {
+    background: white;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+    padding: 25px;
+}
+
+.card-config h3 {
+    margin-bottom: 25px;
+}
+
+/* Alterado aqui de .item-notificacao para .opcao-notificacao */
+.opcao-notificacao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.opcao-notificacao:last-child {
+    border-bottom: none;
+}
+
+.notif-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.notif-info i {
+    font-size: 1.2rem;
+    color: #0d9488;
+}
+
+.notif-info strong {
+    display: block;
+}
+
+.notif-info small {
+    color: #64748b;
+}
+
+.frequencia-wrapper {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn-frequencia {
+    background: white;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 10px 18px;
+    transition: 0.2s;
+}
+
+.btn-frequencia:hover {
+    background: #f8fafc;
+}
+
+.btn-frequencia.ativo {
+    background: #0d9488;
+    color: white;
+    border-color: #0d9488;
+}
+
+.acoes-notificacao {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+
+.btn-salvar-notificacoes {
+    background: #0d9488;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 22px;
+    font-weight: 600;
+}
+
+.btn-salvar-notificacoes:hover {
+    background: #0a7c72;
+}
+
+@media (max-width: 768px) {
+    .grid-notificacoes {
+        grid-template-columns: 1fr;
+    }
+
+    .status-notificacao {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .btn-salvar-notificacoes {
+        width: 100%;
+    }
+}

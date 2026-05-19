@@ -15,7 +15,8 @@
     <link rel="stylesheet" href="../css/navbar.css" />
 
     <script src="../javascript/navbar.js" defer></script>
-
+    <script src="../javascript/layout-perfil.js" defer></script>
+    <link rel="stylesheet" href="../css/layout-perfil.css">
     <link rel="stylesheet" href="../css/perfil.css">
 
 </head>
@@ -26,36 +27,7 @@
 
     <main class="perfil-layout">
         <aside class="container-lateral">
-            <div class="menu-lateral">
-                <button class="menu-item ativo">
-                    <i class="bi bi-person"></i>
-                    <div class="menu-txt">
-                        <strong>Meu perfil</strong>
-                        <span>Gerencie suas informações</span>
-                    </div>
-                </button>
-                <button class="menu-item">
-                    <i class="bi bi-shield-shaded"></i>
-                    <div class="menu-txt">
-                        <strong>Segurança</strong>
-                        <span>Senha e autenticação</span>
-                    </div>
-                </button>
-                <button class="menu-item">
-                    <i class="bi bi-gear"></i>
-                    <div class="menu-txt">
-                        <strong>Preferências</strong>
-                        <span>Comunicações e idioma</span>
-                    </div>
-                </button>
-                <button class="menu-item">
-                    <i class="bi bi-bell"></i>
-                    <div class="menu-txt">
-                        <strong>Notificações</strong>
-                        <span>Gerencie seus alertas</span>
-                    </div>
-                </button>
-            </div>
+            <div class="menu-lateral"></div>
         </aside>
 
         <section class="container-principal">
@@ -217,99 +189,101 @@
         </div>
     </div>
 
-    <div class="modal fade" id="modalCarePoints" tabindex="-1" aria-labelledby="modalCarePointsLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-md">
-        <div class="modal-content perfil-modal-content">
-            
-            <div class="modal-header perfil-modal-header align-items-center">
-                <div>
-                    <h5 class="modal-title" id="modalCarePointsLabel">Meus CarePoints</h5>
-                    <small class="text-muted">Acompanhe seus pontos e conquistas</small>
-                </div>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-            </div>
+    <div class="modal fade" id="modalCarePoints" tabindex="-1" aria-labelledby="modalCarePointsLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-content perfil-modal-content">
 
-            <div class="modal-body perfil-modal-body gap-4">
-                <div class="carepoints-badge-status">
-                    <div class="badge-nivel ouro">
-                        <i class="bi bi-trophy-fill"></i>
-                        <span>Nível Prata</span>
-                    </div>
-                    <div class="saldo-detalhado">
-                        <span class="label">Saldo Atual</span>
-                        <h2 class="pontos-destaque">38 <small>pts</small></h2>
-                    </div>
-                </div>
-
-                <div class="alerta-beneficio-vip">
-                    <i class="bi bi-star-fill text-warning"></i>
+                <div class="modal-header perfil-modal-header align-items-center">
                     <div>
-                        <strong>Benefícios VIP Ativos (Prata+):</strong>
-                        <p class="mb-0 text-muted small">Você tem prioridade na pré-seleção de melhores horários e acesso a encaixes exclusivos!</p>
+                        <h5 class="modal-title" id="modalCarePointsLabel">Meus CarePoints</h5>
+                        <small class="text-muted">Acompanhe seus pontos e conquistas</small>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+
+                <div class="modal-body perfil-modal-body gap-4">
+                    <div class="carepoints-badge-status">
+                        <div class="badge-nivel ouro">
+                            <i class="bi bi-trophy-fill"></i>
+                            <span>Nível Prata</span>
+                        </div>
+                        <div class="saldo-detalhado">
+                            <span class="label">Saldo Atual</span>
+                            <h2 class="pontos-destaque">38 <small>pts</small></h2>
+                        </div>
+                    </div>
+
+                    <div class="alerta-beneficio-vip">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <div>
+                            <strong>Benefícios VIP Ativos (Prata+):</strong>
+                            <p class="mb-0 text-muted small">Você tem prioridade na pré-seleção de melhores horários e
+                                acesso a encaixes exclusivos!</p>
+                        </div>
+                    </div>
+
+                    <div class="historico-pontos-wrapper">
+                        <h6 class="titulo-sessao mb-3"><i class="bi bi-clock-history"></i> Histórico de Pontos</h6>
+
+                        <div class="historico-scroll-container">
+                            <div class="item-historico positivo">
+                                <div class="historico-info">
+                                    <strong>Comparecimento à consulta</strong>
+                                    <span class="data-historico">Hoje, 14:30</span>
+                                </div>
+                                <span class="valor-pontos">+10 pts</span>
+                            </div>
+
+                            <div class="item-historico positivo">
+                                <div class="historico-info">
+                                    <strong>Reagendamento dentro do prazo</strong>
+                                    <span class="data-historico">12 Mai 2026</span>
+                                </div>
+                                <span class="valor-pontos">+5 pts</span>
+                            </div>
+
+                            <div class="item-historico negativo">
+                                <div class="historico-info">
+                                    <strong>Desconto em Farmácia Parceira</strong>
+                                    <span class="data-historico">05 Mai 2026</span>
+                                </div>
+                                <span class="valor-pontos">-30 pts</span>
+                            </div>
+
+                            <div class="item-historico positivo">
+                                <div class="historico-info">
+                                    <strong>Cancelamento dentro do prazo</strong>
+                                    <span class="data-historico">28 Abr 2026</span>
+                                </div>
+                                <span class="valor-pontos">+3 pts</span>
+                            </div>
+
+                            <div class="item-historico positivo">
+                                <div class="historico-info">
+                                    <strong>Comparecimento à consulta</strong>
+                                    <span class="data-historico">20 Abr 2026</span>
+                                </div>
+                                <span class="valor-pontos">+10 pts</span>
+                            </div>
+
+                            <div class="item-historico positivo">
+                                <div class="historico-info">
+                                    <strong>Consulta realizada</strong>
+                                    <span class="data-historico">15 Mar 2026</span>
+                                </div>
+                                <span class="valor-pontos">+10 pts</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="historico-pontos-wrapper">
-                    <h6 class="titulo-sessao mb-3"><i class="bi bi-clock-history"></i> Histórico de Pontos</h6>
-                    
-                    <div class="historico-scroll-container">
-                        <div class="item-historico positivo">
-                            <div class="historico-info">
-                                <strong>Comparecimento à consulta</strong>
-                                <span class="data-historico">Hoje, 14:30</span>
-                            </div>
-                            <span class="valor-pontos">+10 pts</span>
-                        </div>
-
-                        <div class="item-historico positivo">
-                            <div class="historico-info">
-                                <strong>Reagendamento dentro do prazo</strong>
-                                <span class="data-historico">12 Mai 2026</span>
-                            </div>
-                            <span class="valor-pontos">+5 pts</span>
-                        </div>
-
-                        <div class="item-historico negativo">
-                            <div class="historico-info">
-                                <strong>Desconto em Farmácia Parceira</strong>
-                                <span class="data-historico">05 Mai 2026</span>
-                            </div>
-                            <span class="valor-pontos">-30 pts</span>
-                        </div>
-
-                        <div class="item-historico positivo">
-                            <div class="historico-info">
-                                <strong>Cancelamento dentro do prazo</strong>
-                                <span class="data-historico">28 Abr 2026</span>
-                            </div>
-                            <span class="valor-pontos">+3 pts</span>
-                        </div>
-
-                        <div class="item-historico positivo">
-                            <div class="historico-info">
-                                <strong>Comparecimento à consulta</strong>
-                                <span class="data-historico">20 Abr 2026</span>
-                            </div>
-                            <span class="valor-pontos">+10 pts</span>
-                        </div>
-                        
-                         <div class="item-historico positivo">
-                            <div class="historico-info">
-                                <strong>Consulta realizada</strong>
-                                <span class="data-historico">15 Mar 2026</span>
-                            </div>
-                            <span class="valor-pontos">+10 pts</span>
-                        </div>
-                    </div>
+                <div class="modal-footer perfil-modal-footer">
+                    <button type="button" class="btn-cancelar-modal m-0 w-100" data-bs-dismiss="modal">Fechar</button>
                 </div>
-            </div>
-
-            <div class="modal-footer perfil-modal-footer">
-                <button type="button" class="btn-cancelar-modal m-0 w-100" data-bs-dismiss="modal">Fechar</button>
             </div>
         </div>
     </div>
-</div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../javascript/perfil.js"></script>

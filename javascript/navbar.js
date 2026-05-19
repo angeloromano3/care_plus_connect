@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             </a>
                         </div>
                         <hr>
-                        <a href="#" class="dropdown-item ver-todas">Ver todas as notificações</a>
+                        <a href="/pages/" class="dropdown-item ver-todas">Ver todas as notificações</a>
                     </div> <!--Fim dropdown de notificacoes-->
                 </div>
 
@@ -107,10 +107,10 @@ document.addEventListener('DOMContentLoaded', () => {
                             <i class="bi bi-robot"></i> Assist. Virtual
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
+                        <a href="/pages/perfil.html" class="dropdown-item">
                             <i class="bi bi-person-badge"></i> Meu Perfil
                         </a>
-                        <a href="#" class="dropdown-item">
+                        <a href="/pages/preferencias.html" class="dropdown-item">
                             <i class="bi bi-gear"></i> Configurações
                         </a>
 

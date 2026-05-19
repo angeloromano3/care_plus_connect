@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificações</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="../css/variaveis.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/layout-perfil.css">
+    <link rel="stylesheet" href="../css/notificacoes.css">
+
+    <script src="../javascript/navbar.js" defer></script>
+    <script src="../javascript/layout-perfil.js" defer></script>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <main class="perfil-layout">
+
+        <aside class="container-lateral">
+            <div class="menu-lateral"></div>
+        </aside>
+
+        <section class="container-principal">
+
+            <header class="header-perfil">
+                <h1>Notificações</h1>
+                <p>Escolha como deseja receber avisos, lembretes e atualizações.</p>
+            </header>
+
+            <div class="status-notificacao">
+
+                <div class="status-icon">
+                    <i class="bi bi-bell-fill"></i>
+                </div>
+
+                <div>
+                    <strong>Notificações ativas</strong>
+                    <p>Você está recebendo notificações importantes da plataforma.</p>
+                </div>
+
+            </div>
+
+            <div class="grid-notificacoes">
+
+                <div class="card-config">
+
+                    <h3>Canais de notificação</h3>
+
+                    <div class="opcao-notificacao">
+
+                        <div class="notif-info">
+                            <i class="bi bi-whatsapp"></i>
+
+                            <div>
+                                <strong>WhatsApp</strong>
+                                <small>Consultas, lembretes e avisos rápidos</small>
+                            </div>
+                        </div>
+
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" checked>
+                        </div>
+
+                    </div>
+
+                    <div class="opcao-notificacao">
+
+                        <div class="notif-info">
+                            <i class="bi bi-envelope"></i>
+
+                            <div>
+                                <strong>E-mail</strong>
+                                <small>Atualizações e histórico médico</small>
+                            </div>
+                        </div>
+
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" checked>
+                        </div>
+
+                    </div>
+
+                    <div class="opcao-notificacao">
+
+                        <div class="notif-info">
+                            <i class="bi bi-chat-dots"></i>
+
+                            <div>
+                                <strong>SMS</strong>
+                                <small>Avisos urgentes e autenticação</small>
+                            </div>
+                        </div>
+
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox">
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="card-config">
+
+                    <h3>Tipos de alerta</h3>
+
+                    <div class="opcao-notificacao">
+
+                        <div class="notif-info">
+                            <i class="bi bi-calendar-check"></i>
+
+                            <div>
+                                <strong>Consultas</strong>
+                                <small>Lembretes e confirmações</small>
+                            </div>
+                        </div>
+
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" checked>
+                        </div>
+
+                    </div>
+
+
+                    <div class="opcao-notificacao">
+
+                        <div class="notif-info">
+                            <i class="bi bi-heart-pulse"></i>
+
+                            <div>
+                                <strong>Saúde</strong>
+                                <small>Resultados e recomendações</small>
+                            </div>
+                        </div>
+
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" checked>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="card-config mt-4">
+
+                <h3>Frequência de notificações</h3>
+
+                <div class="frequencia-wrapper">
+
+                    <button class="btn-frequencia ativo">
+                        Tempo real
+                    </button>
+
+                    <button class="btn-frequencia">
+                        Diário
+                    </button>
+
+                    <button class="btn-frequencia">
+                        Semanal
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="acoes-notificacao">
+
+                <button class="btn-salvar-notificacoes">
+                    Salvar preferências
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

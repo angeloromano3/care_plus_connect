@@ -1,0 +1,202 @@
+/* ─────────────────────────────
+   RESET
+───────────────────────────── */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: var(--fundo-pagina);
+    color: var(--texto-principal);
+    min-height: 100vh;
+}
+
+/* ─────────────────────────────
+   LAYOUT GERAL
+───────────────────────────── */
+
+.perfil-layout {
+    display: flex;
+    min-height: calc(100vh - 70px);
+    background-color: #f8f9fa;
+}
+
+/* ─────────────────────────────
+   SIDEBAR
+───────────────────────────── */
+
+.container-lateral {
+    width: 300px;
+    background-color: #fff;
+    border-right: 1px solid #e9ecef;
+    padding: 20px;
+}
+
+.menu-lateral {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    text-decoration: none;
+    color: #6c757d;
+
+    transition: 0.3s;
+}
+
+.menu-item:hover {
+    background-color: #f1f1f1;
+    transform: translateY(-3px);
+}
+
+.menu-item i {
+    font-size: 1.4rem;
+}
+
+.menu-item strong {
+    display: block;
+    color: #343a40;
+    font-size: 0.95rem;
+}
+
+.menu-item span {
+    font-size: 0.8rem;
+}
+
+.menu-item.ativo {
+    background-color: #f0fdfa;
+    color: #0d9488;
+    border: 1px solid #1e9e9e;
+}
+
+.menu-item.ativo strong {
+    color: #0d9488;
+}
+
+/* ─────────────────────────────
+   CONTEÚDO PRINCIPAL
+───────────────────────────── */
+
+.container-principal {
+    flex: 1;
+    padding: 40px;
+    max-width: 1200px;
+}
+
+.header-perfil h1 {
+    font-weight: 500;
+    color: #1e293b;
+    margin-bottom: 5px;
+}
+
+.header-perfil p {
+    color: #64748b;
+    margin-bottom: 30px;
+}
+
+/* ─────────────────────────────
+   CARDS PADRÃO
+───────────────────────────── */
+
+.card-padrao {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 25px;
+}
+
+/* ─────────────────────────────
+   BOTÕES PADRÃO
+───────────────────────────── */
+
+.btn-primary-custom {
+    background: #0d9488;
+    color: white;
+    border: none;
+
+    padding: 12px 22px;
+    border-radius: 12px;
+
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+.btn-primary-custom:hover {
+    background: #0a7c72;
+}
+
+.form-check-input {
+    cursor: pointer;
+}
+
+.form-check-input:checked {
+    background-color: #0d9488;
+    border-color: #0d9488;
+}
+
+/* ─────────────────────────────
+   RESPONSIVIDADE
+───────────────────────────── */
+
+@media (max-width: 992px) {
+
+    .perfil-layout {
+        flex-direction: column;
+    }
+
+    .container-lateral {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+    .menu-lateral {
+        flex-direction: row;
+        overflow-x: auto;
+        scrollbar-width: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .menu-lateral::-webkit-scrollbar {
+        display: none;
+    }
+
+    .menu-item {
+        flex-shrink: 0;
+    }
+
+    .container-principal {
+        padding: 30px 20px;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .container-principal {
+        padding: 20px 15px;
+    }
+
+    .header-perfil {
+        text-align: center;
+    }
+
+}
+

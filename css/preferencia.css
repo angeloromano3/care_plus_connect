@@ -1,0 +1,149 @@
+/* ==========================================================================
+   PÁGINA DE PREFERÊNCIAS - DESIGN REFINADO
+   ========================================================================== */
+
+/* Card Principal (Ajustado para a classe correta do seu HTML) */
+.card-detalhes {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    padding: 32px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+/* Linhas de Preferência */
+.item-pref {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #f1f5f9;
+    gap: 20px;
+    transition: all 0.2s ease;
+}
+
+/* Remoção de bordas duplicadas */
+.item-pref.sem-borda, 
+.item-pref:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* Bloco de Texto e Ícone */
+.pref-txt {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Ícones Laterais */
+.pref-txt i {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: #f0fdfa;
+    color: #0d9488;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Microinteração: o ícone ganha destaque discreto quando o usuário interage */
+.item-pref:hover .pref-txt i {
+    background: #0d9488;
+    color: #ffffff;
+    transform: scale(1.02);
+}
+
+/* Tipografia interna */
+.pref-txt strong {
+    display: block;
+    color: #0f172a; /* Tom levemente mais escuro para contraste profissional */
+    font-size: 0.975rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.pref-txt small {
+    display: block;
+    color: #64748b;
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+/* ==========================================================================
+   CUSTOMIZAÇÃO DE INPUTS (Sobrescrevendo padrões do Bootstrap para a sua paleta)
+   ========================================================================== */
+
+/* Customização dos Switches (form-switch) */
+.form-check-input {
+    cursor: pointer;
+    width: 2.6em !important; /* Tamanho ligeiramente mais elegante */
+    height: 1.4em;
+    background-color: #cbd5e1;
+    border-color: #cbd5e1;
+    transition: background-position 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-check-input:checked {
+    background-color: #0d9488 !important;
+    border-color: #0d9488 !important;
+}
+
+.form-check-input:focus {
+    border-color: #0d9488 !important;
+    box-shadow: 0 0 0 0.25rem rgba(13, 148, 136, 0.15) !important;
+}
+
+/* Customização do Select */
+.select-pref {
+    width: 190px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    color: #334155;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.select-pref:focus {
+    border-color: #0d9488 !important;
+    box-shadow: 0 0 0 0.25rem rgba(13, 148, 136, 0.15) !important;
+}
+
+/* Caso queira usar o Grid de duas colunas futuramente */
+.grid-preferencias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (Mobile-First / Breakpoints)
+   ========================================================================== */
+
+@media (max-width: 640px) {
+    .card-detalhes {
+        padding: 20px;
+    }
+
+    .item-pref {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .select-pref {
+        width: 100%;
+    }
+
+    /* Força o switch a ficar alinhado à direita no mobile se preferir, 
+       ou mantém à esquerda abaixo do texto */
+    .form-check.form-switch {
+        padding-left: 2.5em;
+    }
+}

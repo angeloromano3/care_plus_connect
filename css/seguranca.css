@@ -1,0 +1,70 @@
+.card-seguranca {
+    background: white;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+
+    padding: 30px;
+
+    max-width: 700px;
+}
+
+.config-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-weight: 600;
+    color: #475569;
+}
+
+.form-control {
+    border-radius: 12px;
+    padding: 12px 15px;
+
+    border: 1px solid #cbd5e1;
+
+    transition: 0.2s;
+}
+
+.form-control:focus {
+    border-color: #0d9488;
+
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
+}
+
+.info-seguranca {
+    margin-top: 30px;
+
+    padding: 18px;
+
+    border-radius: 16px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+}
+
+.info-seguranca strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.info-seguranca p {
+    margin: 0;
+    color: #64748b;
+}
+.btn-save{
+    background-color: var(--verde-escuro);
+    color: #fff;
+    border: none;
+    border-radius: var(--borda-arredondada);
+    padding: 2%;
+    width: 20%;
+}
