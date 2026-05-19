@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <div class="indicador-nao-lida"></div>
                                 <div class="conteudo-notificacao">
                                     <strong>Consulta Confirmada</strong>
-                                    <p>Sua consulta com Dr. Ana Silva foi confirmada.</p>
+                                    <p>Sua consulta com Dra. Ana Silva foi confirmada.</p>
                                     <span class="tempo">Há 10 min</span>
                                 </div>
                             </a>
