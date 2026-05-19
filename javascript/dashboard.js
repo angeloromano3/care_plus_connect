@@ -71,3 +71,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+
+// ── REDIRECIONAMENTO PARA CONSULTAS ──
+// Ao clicar nos cards de ação do dashboard (Agendar, Remarcar, Cancelar),
+// salva a ação desejada no sessionStorage e redireciona para consultas.html.
+// A página de consultas lê esse valor ao carregar e abre o painel correto.
+function irParaConsultas(acao) {
+  sessionStorage.setItem('consultas_acao_pendente', acao);
+  window.location.href = 'consultas.html';
+}

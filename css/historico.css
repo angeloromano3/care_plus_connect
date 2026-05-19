@@ -60,13 +60,12 @@ body {
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
 /* efeito dos cards*/
 .card-filtro:hover {
-    transform: scale(1.04);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
 .card-filtro[data-status="Todas"]:not(.ativo):hover {
@@ -102,7 +101,6 @@ body {
 .card-filtro.ativo {
     background-color: #298b8679;
     border-color: #1a5653;
-    transform: scale(1.04);
     box-shadow: 0 4px 15px rgba(26, 86, 83, 0.3);
 }
 

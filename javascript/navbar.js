@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <!-- Links Navegação -->
             <ul class="links-navegacao">
                 <li><a href="dashboard.html" id="nav-inicio">Início</a></li>
-                <li><a href="#" id="nav-consultas">Consultas</a></li>
+                <li><a href="/pages/consultas.html" id="nav-consultas">Consultas</a></li>
                 <li><a href="./historico.html" id="nav-historico">Histórico</a></li>
                 <li><a href="chatbot.html" id="nav-assistente">Assistente Virtual</a></li>
             </ul> <!--Fim Links Navegação -->
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             </a>
                         </div>
                         <hr>
-                        <a href="/pages/" class="dropdown-item ver-todas">Ver todas as notificações</a>
+                        <a href="/pages/notificacoes.html" class="dropdown-item ver-todas">Ver todas as notificações</a>
                     </div> <!--Fim dropdown de notificacoes-->
                 </div>
 
@@ -97,13 +97,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         <a href="dashboard.html" class="dropdown-item">
                             <i class="bi bi-house"></i> Início
                         </a>
-                        <a href="#" class="dropdown-item">
+                        <a href="/pages/consultas.html" class="dropdown-item">
                             <i class="bi bi-calendar-event"></i> Consultas
                         </a>
-                        <a href="./historico.html" class="dropdown-item">
+                        <a href="/pages/historico.html" class="dropdown-item">
                             <i class="bi bi-clock-history"></i> Histórico
                         </a>
-                        <a href="chatbot.html" class="dropdown-item">
+                        <a href="/pages/chatbot.html" class="dropdown-item">
                             <i class="bi bi-robot"></i> Assist. Virtual
                         </a>
                         <div class="dropdown-divider"></div>
@@ -137,6 +137,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('nav-historico')?.classList.add('ativo');
     } else if (paginaAtual.includes('chatbot.html')) {
         document.getElementById('nav-assistente')?.classList.add('ativo');
+    } else if (paginaAtual.includes('consultas.html')) {
+        document.getElementById('nav-consultas')?.classList.add('ativo');
     }
 
     // 3. Sua Lógica de Interatividade (Dropdowns e Cliques)

@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CarePlus Connect — Consultas</title>
+
+    <!-- Bootstrap CSS via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
+    <!-- Variáveis globais de cor — deve vir antes dos outros CSS -->
+    <link rel="stylesheet" href="../css/variaveis.css" />
+
+    <!-- Estilos compartilhados da navbar -->
+    <link rel="stylesheet" href="../css/navbar.css" />
+
+    <!-- CSS customizado da página de consultas -->
+    <link rel="stylesheet" href="../css/consultas.css" />
+
+    <!-- JavaScript da navbar -->
+    <script src="../javascript/navbar.js" defer></script>
+
+    <!-- JavaScript da página de consultas -->
+    <script src="../javascript/consultas.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ================================================
+       BARRA DE NAVEGAÇÃO
+       Logo + links + sino de notificação + avatar
+  ================================================= -->
+    <div id="navbar-placeholder"></div>
+    <!-- fim barra de navegação -->
+
+    <!-- ================================================
+       CONTEÚDO PRINCIPAL DA PÁGINA
+  ================================================= -->
+    <main class="conteudo-principal">
+
+        <!-- Cabeçalho com título e descrição da página -->
+        <div class="cabecalho-pagina">
+            <h1 class="titulo-pagina">Minhas Consultas</h1>
+            <p class="subtitulo-pagina">Gerencie seus agendamentos de forma rápida e eficiente</p>
+        </div>
+
+        <!-- Grade principal: coluna esquerda + coluna direita -->
+        <div class="grade-dashboard">
+
+            <!-- ============================================
+           COLUNA ESQUERDA
+      ============================================= -->
+            <div class="coluna-esquerda">
+
+                <!-- ── CARDS DE AÇÃO ──
+             3 botões clicáveis para as ações principais -->
+                <div class="area-cards-acao">
+
+                    <!-- Card: Agendar Consulta -->
+                    <button class="card-acao card-agendar" id="btn-acao-agendar"
+                        onclick="alternarAbasConsultas('agendar')">
+                        <div class="icone-acao">
+                            <i class="bi bi-calendar-plus"></i>
+                        </div>
+                        <div class="texto-acao">
+                            <strong>Agendar Consulta</strong>
+                            <span>Marque uma nova consulta</span>
+                        </div>
+                        <i class="bi bi-chevron-right seta-acao"></i>
+                    </button>
+
+                    <!-- Card: Remarcar Consulta -->
+                    <button class="card-acao card-remarcar" id="btn-acao-remarcar"
+                        onclick="alternarAbasConsultas('remarcar')">
+                        <div class="icone-acao">
+                            <i class="bi bi-arrow-clockwise"></i>
+                        </div>
+                        <div class="texto-acao">
+                            <strong>Remarcar Consulta</strong>
+                            <span>Altere uma consulta existente</span>
+                        </div>
+                        <i class="bi bi-chevron-right seta-acao"></i>
+                    </button>
+
+                    <!-- Card: Cancelar Consulta -->
+                    <button class="card-acao card-cancelar" id="btn-acao-cancelar"
+                        onclick="alternarAbasConsultas('cancelar')">
+                        <div class="icone-acao">
+                            <i class="bi bi-x-circle"></i>
+                        </div>
+                        <div class="texto-acao">
+                            <strong>Cancelar Consulta</strong>
+                            <span>Cancele um agendamento</span>
+                        </div>
+                        <i class="bi bi-chevron-right seta-acao"></i>
+                    </button>
+
+                </div>
+                <!-- fim area-cards-acao -->
+
+                <!-- Painel interativo para agendar / remarcar / cancelar -->
+                <section class="modal-interativo agendamento" id="painel-interativo-consultas" style="display:none;">
+
+                    <!-- Formulário: Agendar -->
+                    <div class="conteudo-interativo d-none" id="form-consulta-agendar">
+                        <div class="interativo-cabecalho">
+                            <h3 class="interativo-titulo text-agendar"><i class="bi bi-calendar-plus me-2"></i> Agendar
+                                uma Nova Consulta</h3>
+                            <p class="interativo-subtitulo">Preencha os critérios abaixo para localizar e reservar o
+                                melhor horário com o profissional.</p>
+                        </div>
+
+                        <form onsubmit="event.preventDefault(); enviarFormulario('agendar');">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label-custom">Qual especialidade deseja atendimento?</label>
+                                    <select class="form-select custom-input" required>
+                                        <option value="" disabled selected hidden>Escolha uma das opções...</option>
+                                        <option value="cardiologia">Cardiologia</option>
+                                        <option value="odontologia">Odontologia</option>
+                                        <option value="dermatologia">Dermatologia</option>
+                                        <option value="clini-geral">Clínico Geral</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label-custom">Escolha a região mais próxima:</label>
+                                    <select class="form-select custom-input" required>
+                                        <option value="" disabled selected hidden>Escolha uma das opções...</option>
+                                        <option value="sp-centro">São Paulo — Centro</option>
+                                        <option value="sp-zona-sul">São Paulo — Zona Sul</option>
+                                        <option value="sp-zona-oeste">São Paulo — Zona Oeste</option>
+                                        <option value="alfaville">Barueri — Alphaville</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label-custom">Sabe o nome do profissional? <span
+                                            class="opcional">(opcional)</span></label>
+                                    <input type="text" class="form-control custom-input"
+                                        placeholder="Digite o nome do profissional...">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label-custom">Escolha a data:</label>
+                                    <input type="date" class="form-control custom-input" required>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label-custom">Melhor horário:</label>
+                                    <select class="form-select custom-input" required>
+                                        <option value="" disabled selected hidden>Escolha...</option>
+                                        <option value="manha">Manhã (08h às 12h)</option>
+                                        <option value="tarde">Tarde (12h às 18h)</option>
+                                        <option value="noite">Noite (18h às 21h)</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 text-end mt-4">
+                                    <button type="submit" class="btn-acao-submit btn-submit-agendar">Finalizar
+                                        Agendamento</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Formulário: Remarcar -->
+                    <div class="conteudo-interativo d-none" id="form-consulta-remarcar">
+                        <div class="interativo-cabecalho">
+                            <h3 class="interativo-titulo text-remarcar"><i class="bi bi-arrow-clockwise me-2"></i>
+                                Remarcar Consulta Existente</h3>
+                            <p class="interativo-subtitulo">Selecione qual agendamento ativo deseja transferir e defina
+                                o novo período.</p>
+                        </div>
+
+                        <form onsubmit="event.preventDefault(); enviarFormulario('remarcar');">
+                            <div class="row g-3">
+                                <div class="col-md-12">
+                                    <label class="form-label-custom">Qual consulta deseja remarcar?</label>
+                                    <select class="form-select custom-input" required>
+                                        <option value="" disabled selected hidden>Selecione uma consulta da sua lista
+                                            ativa...</option>
+                                        <option value="1">Dr. Ana Silva — Cardiologia (20 de Maio às 14:00)</option>
+                                        <option value="2">Dr. Carlos Santos — Odontologista (22 de Maio às 10:30)
+                                        </option>
+                                        <option value="3">Dra. Maria Oliveira — Dermatologia (25 de Maio às 16:00)
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label-custom">Escolha a nova data desejada:</label>
+                                    <input type="date" class="form-control custom-input" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label-custom">Escolha o novo horário:</label>
+                                    <select class="form-select custom-input" required>
+                                        <option value="" disabled selected hidden>Selecione o horário...</option>
+                                        <option value="09:00">09:00</option>
+                                        <option value="11:00">11:00</option>
+                                        <option value="14:30">14:30</option>
+                                        <option value="16:30">16:30</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 text-end mt-4">
+                                    <button type="submit" class="btn-acao-submit btn-submit-remarcar">Confirmar
+                                        Remarcação</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Formulário: Cancelar -->
+                    <div class="conteudo-interativo d-none" id="form-consulta-cancelar">
+                        <div class="interativo-cabecalho">
+                            <h3 class="interativo-titulo text-cancelar"><i class="bi bi-calendar-x me-2"></i> Cancelar
+                                Agendamento</h3>
+                            <p class="interativo-subtitulo">Selecione o agendamento que deseja remover. Lembre-se que
+                                você pode remarcar para não perder seus pontos.</p>
+                        </div>
+
+                        <form onsubmit="event.preventDefault(); enviarFormulario('cancelar');">
+                            <div class="row g-3">
+                                <div class="col-md-7">
+                                    <label class="form-label-custom">Qual consulta deseja cancelar?</label>
+                                    <select class="form-select custom-input" required>
+                                        <option value="" disabled selected hidden>Selecione o agendamento para
+                                            cancelamento...</option>
+                                        <option value="1">Dr. Ana Silva — Cardiologia (20 de Maio às 14:00)</option>
+                                        <option value="2">Dr. Carlos Santos — Odontologista (22 de Maio às 10:30)
+                                        </option>
+                                        <option value="3">Dra. Maria Oliveira — Dermatologia (25 de Maio às 16:00)
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="col-md-5">
+                                    <label class="form-label-custom">Motivo do cancelamento:</label>
+                                    <select class="form-select custom-input" required>
+                                        <option value="" disabled selected hidden>Escolha o motivo...</option>
+                                        <option value="conflito">Conflito de agenda profissional</option>
+                                        <option value="pessoal">Imprevisto pessoal de saúde</option>
+                                        <option value="distancia">Problema logístico / transporte</option>
+                                        <option value="outro">Outros motivos</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <div class="alerta-cancelamento p-3 rounded d-flex align-items-start">
+                                        <i class="bi bi-exclamation-triangle-fill text-warning me-2 mt-1"></i>
+                                        <small class="text-muted">Atenção: Cancelamentos feitos com menos de 24 horas de
+                                            antecedência podem impactar seu índice de comparecimento geral nas
+                                            estatísticas da sua empresa.</small>
+                                    </div>
+                                </div>
+                                <div class="col-12 text-end mt-4">
+                                    <button type="submit" class="btn-acao-submit btn-submit-cancelar">Confirmar
+                                        Cancelamento</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </section>
+                <!-- Fim painel interativo -->
+
+                <!-- ── PRÓXIMAS CONSULTAS ── -->
+                <div class="card-consultas">
+                    <p class="titulo-card">Próximas Consultas</p>
+                    <p class="subtitulo-card">Seus agendamentos confirmados e pendentes.</p>
+
+                    <!-- Consulta 1 -->
+                    <div class="item-consulta">
+                        <div class="avatar-medico">AS</div>
+                        <div class="info-consulta">
+                            <strong>Dr. Ana Silva</strong>
+                            <p class="especialidade">Cardiologia</p>
+                            <div class="meta-consulta">
+                                <span><i class="bi bi-calendar"></i> 20 de maio de 2026</span>
+                                <span><i class="bi bi-clock"></i> 14:00</span>
+                            </div>
+                        </div>
+                        <span class="badge-status status-confirmada">Confirmada</span>
+                    </div>
+
+                    <!-- Consulta 2 -->
+                    <div class="item-consulta">
+                        <div class="avatar-medico">CS</div>
+                        <div class="info-consulta">
+                            <strong>Dr. Carlos Santos</strong>
+                            <p class="especialidade">Odontologista</p>
+                            <div class="meta-consulta">
+                                <span><i class="bi bi-calendar"></i> 22 de maio de 2026</span>
+                                <span><i class="bi bi-clock"></i> 10:30</span>
+                            </div>
+                        </div>
+                        <span class="badge-status status-pendente">Pendente</span>
+                    </div>
+
+                    <!-- Consulta 3 -->
+                    <div class="item-consulta">
+                        <div class="avatar-medico">MO</div>
+                        <div class="info-consulta">
+                            <strong>Dra. Maria Oliveira</strong>
+                            <p class="especialidade">Dermatologia</p>
+                            <div class="meta-consulta">
+                                <span><i class="bi bi-calendar"></i> 25 de maio de 2026</span>
+                                <span><i class="bi bi-clock"></i> 16:00</span>
+                            </div>
+                        </div>
+                        <span class="badge-status status-confirmada">Confirmada</span>
+                    </div>
+
+                </div>
+                <!-- fim card-consultas -->
+
+            </div>
+            <!-- fim coluna-esquerda -->
+
+            <!-- ============================================
+           COLUNA DIREITA (barra lateral)
+      ============================================= -->
+            <div class="coluna-direita">
+
+                <!-- ── CARD DE CLIMA ── -->
+                <div class="card-clima" role="button"
+                    onclick="alert('Em breve integrado a uma API de clima em tempo real!')">
+                    <div class="topo-clima">
+                        <span class="cidade-clima">São Paulo</span>
+                        <span class="emoji-clima">☀️</span>
+                    </div>
+                    <div class="temperatura">25°</div>
+                    <div class="descricao-clima">Ensolarado</div>
+                    <div class="detalhes-clima">
+                        <div class="detalhe-clima">
+                            <span>Umidade</span>
+                            <span>65%</span>
+                        </div>
+                        <div class="detalhe-clima">
+                            <span>Vento</span>
+                            <span>12 km/h</span>
+                        </div>
+                        <div class="detalhe-clima">
+                            <span>Sensação</span>
+                            <span>26°</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- fim card-clima -->
+
+                <!-- ── CARDS ROTATIVOS ── -->
+                <div class="area-cards-rotativos">
+
+                    <!-- Slide 1: Consultas pendentes -->
+                    <div class="slide-rotativo slide-pendentes ativo" id="slide-0">
+                        <div class="icone-slide">🔔</div>
+                        <p class="titulo-slide">Consultas Pendentes</p>
+                        <p class="descricao-slide">Você tem 1 consulta aguardando confirmação. Verifique seus
+                            agendamentos.</p>
+                        <button class="botao-slide" onclick="alert('Funcionalidade em desenvolvimento')">Ver
+                            consultas</button>
+                    </div>
+
+                    <!-- Slide 2: Dica de saúde -->
+                    <div class="slide-rotativo slide-dica" id="slide-1">
+                        <div class="icone-slide">💡</div>
+                        <p class="titulo-slide">Dica de Saúde</p>
+                        <p class="descricao-slide">Beber pelo menos 2 litros de água por dia ajuda a manter o bom
+                            funcionamento do organismo.</p>
+                    </div>
+
+                    <!-- Slide 3: Lembrete preventivo -->
+                    <div class="slide-rotativo slide-lembrete" id="slide-2">
+                        <div class="icone-slide">📅</div>
+                        <p class="titulo-slide">Lembrete</p>
+                        <p class="descricao-slide">Você não agenda uma consulta há 30 dias. Cuide da sua saúde
+                            preventivamente!</p>
+                        <button class="botao-slide" onclick="alternarAbasConsultas('agendar')">Agendar
+                            agora</button>
+                    </div>
+
+                    <!-- Slide 4: CarePoints -->
+                    <div class="slide-rotativo slide-pontos" id="slide-3">
+                        <div class="icone-slide">⭐</div>
+                        <p class="titulo-slide">Quase lá!</p>
+                        <p class="descricao-slide">Você está a 65 pontos de atingir o nível Ouro. Continue comparecendo
+                            às consultas!</p>
+                        <button class="botao-slide"
+                            onclick="document.getElementById('modal-recompensas').classList.add('ativo'); document.body.style.overflow='hidden'">Ver
+                            recompensas</button>
+                    </div>
+
+                    <!-- Slide 5: Apps integrados -->
+                    <div class="slide-rotativo slide-apps" id="slide-4">
+                        <div class="icone-slide">🔗</div>
+                        <p class="titulo-slide">Apps integrados</p>
+
+                        <div class="app-item-mini app-maps">
+                            <i class="bi bi-map"></i>
+                            <span>Google Maps</span>
+                            <button class="botao-app-mini"
+                                onclick="alert('Funcionalidade em desenvolvimento')">Conectar</button>
+                        </div>
+                        <div class="app-item-mini app-waze">
+                            <i class="bi bi-car-front"></i>
+                            <span>Waze</span>
+                            <button class="botao-app-mini"
+                                onclick="alert('Funcionalidade em desenvolvimento')">Conectar</button>
+                        </div>
+                        <div class="app-item-mini app-calendar">
+                            <i class="bi bi-calendar-check"></i>
+                            <span>Google Calendar</span>
+                            <button class="botao-app-mini"
+                                onclick="alert('Funcionalidade em desenvolvimento')">Conectar</button>
+                        </div>
+                        <div class="app-item-mini app-climatempo">
+                            <i class="bi bi-cloud-sun"></i>
+                            <span>Climatempo</span>
+                            <button class="botao-app-mini"
+                                onclick="alert('Funcionalidade em desenvolvimento')">Conectar</button>
+                        </div>
+                    </div>
+
+                    <!-- Pontos de navegação manual -->
+                    <div class="pontos-navegacao">
+                        <button class="ponto-navegacao ativo" aria-label="Slide 1"></button>
+                        <button class="ponto-navegacao" aria-label="Slide 2"></button>
+                        <button class="ponto-navegacao" aria-label="Slide 3"></button>
+                        <button class="ponto-navegacao" aria-label="Slide 4"></button>
+                        <button class="ponto-navegacao" aria-label="Slide 5"></button>
+                    </div>
+                </div>
+                <!-- fim area-cards-rotativos -->
+
+                <!-- ── CARD DO BENI ── -->
+                <div class="card-beni">
+                    <div class="area-beni">
+                        <img src="../assets/imagens/beni.png" alt="Mascote Beni" class="imagem-beni" />
+                    </div>
+                    <p class="titulo-beni">Precisa de ajuda?</p>
+                    <p class="descricao-beni">Nosso assistente virtual Beni está sempre disponível para você!</p>
+                    <button class="botao-beni" onclick="window.location.href='chatbot.html'">Conversar agora</button>
+                </div>
+                <!-- fim card-beni -->
+
+            </div>
+            <!-- fim coluna-direita -->
+
+        </div>
+        <!-- fim grade-dashboard -->
+
+        <!-- ================================================
+             MODAL DE RECOMPENSAS (CarePoints)
+        ================================================= -->
+        <div class="modal-overlay" id="modal-recompensas">
+            <div class="modal-caixa">
+
+                <div class="modal-cabecalho">
+                    <div>
+                        <p class="modal-titulo">CarePoints — Recompensas</p>
+                        <p class="modal-subtitulo">Acompanhe seus pontos e resgate benefícios exclusivos</p>
+                    </div>
+                    <button class="modal-fechar" id="btn-fechar-modal" aria-label="Fechar modal">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                </div>
+
+                <div class="modal-corpo">
+
+                    <div class="modal-pts-row">
+                        <div>
+                            <p class="modal-pts-label">Sua pontuação</p>
+                            <div class="modal-pts-numero">
+                                <span class="modal-numero">35</span>
+                                <span class="modal-unidade">pts</span>
+                            </div>
+                        </div>
+                        <div class="badge-tier prata">
+                            <div class="icone-tier">🥈</div>
+                            <span class="nome-tier">Prata</span>
+                        </div>
+                    </div>
+
+                    <div class="linha-tiers">
+                        <div class="etapa-tier">
+                            <div class="bolinha-tier conquistado">🥉</div>
+                            <span class="label-tier">Bronze</span>
+                        </div>
+                        <div class="barra-conexao completa"></div>
+                        <div class="etapa-tier">
+                            <div class="bolinha-tier atual">🥈</div>
+                            <span class="label-tier atual">Prata</span>
+                        </div>
+                        <div class="barra-conexao parcial"></div>
+                        <div class="etapa-tier">
+                            <div class="bolinha-tier proximo">🥇</div>
+                            <span class="label-tier">Ouro</span>
+                        </div>
+                    </div>
+
+                    <div class="area-progresso">
+                        <div class="info-progresso">
+                            <span>35 / 100 pts para Ouro</span>
+                            <span>65 pts restantes</span>
+                        </div>
+                        <div class="trilha-progresso">
+                            <div class="preenchimento-progresso"></div>
+                        </div>
+                    </div>
+
+                    <p class="modal-secao-titulo">Recompensas disponíveis</p>
+                    <div class="modal-recompensas-grid">
+                        <div class="modal-recomp-card">
+                            <div class="modal-recomp-icone">⚡</div>
+                            <p class="modal-recomp-titulo">Prioridade no agendamento</p>
+                            <p class="modal-recomp-pts">30 pts necessários</p>
+                            <button class="modal-recomp-btn ativo">Resgatar</button>
+                        </div>
+                        <div class="modal-recomp-card">
+                            <div class="modal-recomp-icone">🎫</div>
+                            <p class="modal-recomp-titulo">Consulta com desconto</p>
+                            <p class="modal-recomp-pts">50 pts necessários</p>
+                            <button class="modal-recomp-btn bloqueado">Faltam 15 pts</button>
+                        </div>
+                        <div class="modal-recomp-card">
+                            <div class="modal-recomp-icone">📋</div>
+                            <p class="modal-recomp-titulo">Exame gratuito</p>
+                            <p class="modal-recomp-pts">80 pts necessários</p>
+                            <button class="modal-recomp-btn bloqueado">Faltam 45 pts</button>
+                        </div>
+                        <div class="modal-recomp-card">
+                            <div class="modal-recomp-icone">🎁</div>
+                            <p class="modal-recomp-titulo">Kit saúde Care Plus</p>
+                            <p class="modal-recomp-pts">100 pts necessários</p>
+                            <button class="modal-recomp-btn bloqueado">Faltam 65 pts</button>
+                        </div>
+                    </div>
+
+                    <p class="modal-secao-titulo">Como ganhar pontos</p>
+
+                    <div class="modal-ganhar-item">
+                        <div class="modal-ganhar-icone icone-comparecer">
+                            <i class="bi bi-calendar-check"></i>
+                        </div>
+                        <div class="modal-ganhar-texto">
+                            <strong>Comparecer à consulta</strong>
+                            <span>Confirmado automaticamente após a consulta realizada</span>
+                        </div>
+                        <span class="modal-ganhar-pts">+10 pts</span>
+                    </div>
+
+                    <div class="modal-ganhar-item">
+                        <div class="modal-ganhar-icone icone-remarcar">
+                            <i class="bi bi-arrow-clockwise"></i>
+                        </div>
+                        <div class="modal-ganhar-texto">
+                            <strong>Remarcar com antecedência</strong>
+                            <span>Válido para remarcações feitas com mais de 24h de antecedência</span>
+                        </div>
+                        <span class="modal-ganhar-pts">+5 pts</span>
+                    </div>
+
+                    <div class="modal-ganhar-item">
+                        <div class="modal-ganhar-icone icone-cancelar">
+                            <i class="bi bi-x-circle"></i>
+                        </div>
+                        <div class="modal-ganhar-texto">
+                            <strong>Cancelar com antecedência</strong>
+                            <span>Válido para cancelamentos com mais de 48h de antecedência</span>
+                        </div>
+                        <span class="modal-ganhar-pts">+3 pts</span>
+                    </div>
+
+                    <div class="modal-ganhar-item">
+                        <div class="modal-ganhar-icone icone-preventiva">
+                            <i class="bi bi-star"></i>
+                        </div>
+                        <div class="modal-ganhar-texto">
+                            <strong>Consulta preventiva</strong>
+                            <span>Check-ups e consultas de prevenção valem mais pontos!</span>
+                        </div>
+                        <span class="modal-ganhar-pts">+15 pts</span>
+                    </div>
+
+                    <div class="modal-regras">
+                        <i class="bi bi-info-circle"></i>
+                        <span>Pontos expiram após 12 meses sem atividade · Não comparecer sem aviso não gera pontos ·
+                            Pontos são acumulativos entre consultas</span>
+                    </div>
+
+                </div>
+                <!-- fim modal-corpo -->
+
+            </div>
+        </div>
+        <!-- fim modal-recompensas -->
+
+        <!-- ================================================
+             TOAST DE CONFIRMAÇÃO (feedback de ação)
+        ================================================= -->
+        <div id="toast-confirmacao" class="toast-confirmacao" aria-live="polite">
+            <i class="bi bi-check-circle-fill toast-icone"></i>
+            <span id="toast-mensagem"></span>
+        </div>
+
+    </main>
+    <!-- fim conteudo-principal -->
+
+</body>
+
+</html>
