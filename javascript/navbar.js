@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <!-- Links Navegação -->
             <ul class="links-navegacao">
                 <li><a href="dashboard.html" id="nav-inicio">Início</a></li>
-                <li><a href="/pages/consultas.html" id="nav-consultas">Consultas</a></li>
+                <li><a href="./consultas.html" id="nav-consultas">Consultas</a></li>
                 <li><a href="./historico.html" id="nav-historico">Histórico</a></li>
-                <li><a href="chatbot.html" id="nav-assistente">Assistente Virtual</a></li>
+                <li><a href="./chatbot.html" id="nav-assistente">Assistente Virtual</a></li>
             </ul> <!--Fim Links Navegação -->
 
             <!-- Acoes container -->
@@ -97,20 +97,20 @@ document.addEventListener('DOMContentLoaded', () => {
                         <a href="dashboard.html" class="dropdown-item">
                             <i class="bi bi-house"></i> Início
                         </a>
-                        <a href="/pages/consultas.html" class="dropdown-item">
+                        <a href="./consultas.html" class="dropdown-item">
                             <i class="bi bi-calendar-event"></i> Consultas
                         </a>
-                        <a href="/pages/historico.html" class="dropdown-item">
+                        <a href="./historico.html" class="dropdown-item">
                             <i class="bi bi-clock-history"></i> Histórico
                         </a>
-                        <a href="/pages/chatbot.html" class="dropdown-item">
+                        <a href="./chatbot.html" class="dropdown-item">
                             <i class="bi bi-robot"></i> Assist. Virtual
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="/pages/perfil.html" class="dropdown-item">
+                        <a href="./perfil.html" class="dropdown-item">
                             <i class="bi bi-person-badge"></i> Meu Perfil
                         </a>
-                        <a href="/pages/preferencias.html" class="dropdown-item">
+                        <a href="./preferencias.html" class="dropdown-item">
                             <i class="bi bi-gear"></i> Configurações
                         </a>
 
